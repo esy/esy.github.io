@@ -160,8 +160,8 @@ const siteConfig = {
     }
   },
   algolia: {
-    apiKey: "0fd97db83891aa20810559812d9e69ac",
-    indexName: "bucklescript"
+    apiKey: "2d4ae48c321d57af794830e115f45864",
+    indexName: "esy"
   }
 };
 
