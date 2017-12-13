@@ -1,0 +1,7 @@
+{
+  "docs": {
+    "Intro": ["what-why", "for-npm-users", "for-opam-users", "installation"],
+    "Workflow": ["getting-started", "configuration", "environment", "commands"],
+    "Advanced": ["how-it-works", "development"]
+  }
+}
