@@ -1,0 +1,165 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Environment · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Environment · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="* [Exported Environment](#exported-environment)"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/reason-react-white.svg"/><h2 class="headerTitle">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/en/installation.html" target="_self">Docs</a></li><li><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/fr">Français</a></li><li><a href="/ru">Русский</a></li><li><a href="/zh-CN">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank">Help Translate</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><li><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Workflow</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Intro</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/for-npm-users.html">For NPM users</a></li><li class="navListItem"><a class="navItem" href="/docs/en/for-opam-users.html">For OPAM users</a></li><li class="navListItem"><a class="navItem" href="/docs/en/installation.html">Installation</a></li></ul></div><div class="navGroup navGroupActive"><h3>Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/configuration.html">Configuration</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/en/environment.html">Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/en/commands.html">Commands</a></li></ul></div><div class="navGroup navGroupActive"><h3>Advanced</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/how-it-works.html">How esy works</a></li><li class="navListItem"><a class="navItem" href="/docs/en/development.html">Development</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy.github.io/tree/source/docs/environment.md" target="_blank">Edit</a><h1>Environment</h1></header><article><div><span><ul>
+<li><a href="#exported-environment">Exported Environment</a></li>
+<li><a href="#esy-environment-reference">Esy Environment Reference</a></li>
+<li><a href="#build-environment">Build Environment</a></li>
+<li><a href="#command-environment">Command Environment</a></li>
+<li><a href="#variable-substitution-syntax">Variable substitution syntax</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="exported-environment"></a><a href="#exported-environment" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exported Environment</h4>
+<p>Packages can configure how they contribute to the environment of the packages
+which depend on them.</p>
+<p>To add a new environment variable to the Esy <a href="#build-environment">build
+environment</a> packages could specify <code>esy.exportedEnv</code> config
+key:</p>
+<pre><code class="hljs">{
+  <span class="hljs-string">"name"</span>: <span class="hljs-string">"mylib"</span>,
+  <span class="hljs-string">"esy"</span>: {
+    ...,
+    <span class="hljs-string">"exportedEnv"</span>: {
+      <span class="hljs-string">"CAML_LD_LIBRARY_PATH"</span>: <span class="hljs-string">"#{mylib.lib : $CAML_LD_LIBRARY_PATH}"</span>,
+      <span class="hljs-string">"scope"</span>: <span class="hljs-string">"global"</span>
+    }
+  }
+}
+</code></pre>
+<p>In the example above, the configuration <em>exports</em> (in this specific case it
+<em>re-exports</em> it) an environment variable called <code>$CAML_LD_LIBRARY_PATH</code> by
+appending <code>$mylib__lib</code> to its previous value.</p>
+<p>Also note the usage of <a href="#variable-substitution-syntax">Esy variable substitution
+syntax</a> to define the value of the
+<code>$CAML_LD_LIBRARY_PATH</code> variable.</p>
+<h3><a class="anchor" aria-hidden="true" name="esy-environment-reference"></a><a href="#esy-environment-reference" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Esy Environment Reference</h3>
+<p>For each project Esy manages:</p>
+<ul>
+<li><p><em>build environment</em> — an environment which is used to build the project</p></li>
+<li><p><em>command environment</em> — an environment which is used running text editors/IDE
+and for general testing of the built artfiacts</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="build-environment"></a><a href="#build-environment" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Environment</h4>
+<p>The following environment variables are provided by Esy:</p>
+<ul>
+<li><code>$SHELL</code></li>
+<li><code>$PATH</code></li>
+<li><code>$MAN_PATH</code></li>
+<li><code>$OCAMLPATH</code></li>
+<li><code>$OCAMLFIND_DESTDIR</code></li>
+<li><code>$OCAMLFIND_LDCONF</code></li>
+<li><code>$OCAMLFIND_COMMANDS</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="command-environment"></a><a href="#command-environment" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Command Environment</h4>
+<p>Currently the command environment is identical to build environment sans the
+<code>$SHELL</code> variable which is non-overriden and equals to the <code>$SHELL</code> value of a
+user's environment.</p>
+<h3><a class="anchor" aria-hidden="true" name="variable-substitution-syntax"></a><a href="#variable-substitution-syntax" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable substitution syntax</h3>
+<p>Your <code>package.json</code>'s <code>esy</code> configuration can include &quot;interpolation&quot; regions written
+as <code>#{ }</code>, where <code>esy</code> &quot;variables&quot; which will automatically be substituted
+with their corresponding values.</p>
+<p>For example, if you have a package named <code>@company/widget-factory</code> at version
+<code>1.2.0</code>, then its <code>esy.build</code> field in <code>package.json</code> could be specified as:</p>
+<pre><code class="hljs css json">   "build": "make #{@company/widget-factory.version}",
+</code></pre>
+<p>and <code>esy</code> will ensure that the build command is interpreted as <code>&quot;make 1.2.0&quot;</code>.
+In this example the interpolation region includes just one <code>esy</code> variable
+<code>@company/widget-factory.version</code> - which is substituted with the version number
+for the <code>@company/widget-factory</code> package.</p>
+<p>Package specific variables are prefixed with their package name, followed
+by an <code>esy</code> &quot;property&quot; of that package such as <code>.version</code> or <code>.lib</code>.</p>
+<p><code>esy</code> also provides some other built in variables which help with path and environment
+manipulation in a cross platform manner.</p>
+<p><strong>Supported Variable Substitutions:</strong></p>
+<p>Those variables refer to the values defined for the current package:</p>
+<ul>
+<li><code>self.bin</code></li>
+<li><code>self.sbin</code></li>
+<li><code>self.lib</code></li>
+<li><code>self.man</code></li>
+<li><code>self.doc</code></li>
+<li><code>self.stublibs</code></li>
+<li><code>self.toplevel</code></li>
+<li><code>self.share</code></li>
+<li><code>self.etc</code></li>
+<li><code>self.install</code></li>
+<li><code>self.target_dir</code></li>
+<li><code>self.root</code></li>
+<li><code>self.name</code></li>
+<li><code>self.version</code></li>
+<li><code>self.depends</code></li>
+</ul>
+<p>You can refer to the values defined for other packages by using the respective
+<code>package-name</code> prefix:</p>
+<ul>
+<li><code>package-name.bin</code></li>
+<li><code>package-name.sbin</code></li>
+<li><code>package-name.lib</code></li>
+<li><code>package-name.man</code></li>
+<li><code>package-name.doc</code></li>
+<li><code>package-name.stublibs</code></li>
+<li><code>package-name.toplevel</code></li>
+<li><code>package-name.share</code></li>
+<li><code>package-name.etc</code></li>
+<li><code>package-name.install</code></li>
+<li><code>package-name.target_dir</code></li>
+<li><code>package-name.root</code></li>
+<li><code>package-name.name</code></li>
+<li><code>package-name.version</code></li>
+<li><code>package-name.depends</code></li>
+</ul>
+<p>The following constructs are also allowed inside &quot;interpolation&quot; regions:</p>
+<ul>
+<li><code>$PATH</code>, <code>$cur__bin</code> : environment variable references</li>
+<li><code>'hello'</code>, <code>'lib'</code> : string literals</li>
+<li><code>/</code> : path separator (substituted with the platform's path separator)</li>
+<li><code>:</code> : env var value separator (substituted with platform's env var separator <code>:</code>/<code>;</code>).</li>
+</ul>
+<p>You may join many of these <code>esy</code> variables together inside of an interpolation region
+by separating the variables with spaces. The entire interpolation region will be substituted
+with the concatenation of the space separated <code>esy</code> variables.</p>
+<p>White space separating the variables are not included in the concatenation, If
+you need to insert a literal white space, use <code>' '</code> string literal.</p>
+<p>Examples:</p>
+<ul>
+<li><pre><code class="hljs">"#{<span class="hljs-attribute">pkg.bin </span>: $PATH}"
+</code></pre></li>
+<li><pre><code class="hljs"><span class="hljs-string">"<span class="hljs-subst">#{pkg.lib / <span class="hljs-string">'stublibs'</span> : <span class="hljs-variable">$CAML_LD_LIBRARY_PATH</span>}</span>"</span>
+</code></pre></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="configuration.html">← Configuration</a><a class="docs-next button" href="commands.html">Commands →</a></div></div></div></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+          areas: [
+            // try to use the first query.
+            '.mainContainer, .docsNavContainer .toc .navWrapper',
+            // fallback
+            'body'
+          ],
+          link: '.docsNavContainer:not(.docsSliderActive) a',
+          update: {
+            script: false,
+          }
+        });
+        var languagesMenuItemCopy = document.getElementById("languages-menu");
+        languagesMenuItemCopy.addEventListener("click", function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        });</script></span></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: '0fd97db83891aa20810559812d9e69ac',
+                indexName: 'bucklescript',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

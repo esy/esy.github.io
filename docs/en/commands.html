@@ -1,0 +1,83 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Commands · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Commands · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="```"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/reason-react-white.svg"/><h2 class="headerTitle">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/en/installation.html" target="_self">Docs</a></li><li><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/fr">Français</a></li><li><a href="/ru">Русский</a></li><li><a href="/zh-CN">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank">Help Translate</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><li><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Workflow</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Intro</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/for-npm-users.html">For NPM users</a></li><li class="navListItem"><a class="navItem" href="/docs/en/for-opam-users.html">For OPAM users</a></li><li class="navListItem"><a class="navItem" href="/docs/en/installation.html">Installation</a></li></ul></div><div class="navGroup navGroupActive"><h3>Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/configuration.html">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/environment.html">Environment</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/en/commands.html">Commands</a></li></ul></div><div class="navGroup navGroupActive"><h3>Advanced</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/how-it-works.html">How esy works</a></li><li class="navListItem"><a class="navItem" href="/docs/en/development.html">Development</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy.github.io/tree/source/docs/commands.md" target="_blank">Edit</a><h1>Commands</h1></header><article><div><span><pre><code class="hljs"><span class="hljs-attribute">Usage</span>: esy &lt;command&gt; [--help] [--version]
+
+<span class="sql"><span class="hljs-keyword">install</span>               Installs packages declared <span class="hljs-keyword">in</span> package.json.
+i
+
+<span class="hljs-keyword">build</span>                 Run <span class="hljs-keyword">build</span> commands <span class="hljs-keyword">for</span> the project.
+b                     (<span class="hljs-keyword">as</span> specified <span class="hljs-keyword">in</span> <span class="hljs-string">"esy.build"</span> <span class="hljs-keyword">key</span> <span class="hljs-keyword">within</span> package.json)
+
+<span class="hljs-keyword">add</span> &lt;<span class="hljs-keyword">package</span>&gt;         <span class="hljs-keyword">Add</span> a specified <span class="hljs-keyword">package</span> <span class="hljs-keyword">to</span> dependencies <span class="hljs-keyword">and</span> installs it.
+
+ls-builds             Lists <span class="hljs-keyword">package</span> dependencies along <span class="hljs-keyword">with</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">package</span><span class="hljs-string">'s build status.
+                      This will include transitive package dependencies.
+
+ls-libs [--all]       Lists package dependencies along with the set of libraries made
+                      available by each package dependency. By default, only includes
+                      immediate package dependencies.  Pass `--all` to include
+                      transitive dependencies.
+
+print-env             Prints esy environment on stdout.
+
+build-shell [path]    Drops into a shell with environment matching your
+                      package'</span>s <span class="hljs-keyword">build</span> environment. <span class="hljs-keyword">If</span> argument <span class="hljs-keyword">is</span> provided
+                      <span class="hljs-keyword">then</span> it should point <span class="hljs-keyword">to</span> the <span class="hljs-keyword">package</span> inside the <span class="hljs-keyword">current</span>
+                      sandbox — that will initialize <span class="hljs-keyword">build</span> shell <span class="hljs-keyword">for</span> that
+                      specified package.
+
+shell                 Drops <span class="hljs-keyword">into</span> development shell.
+                      <span class="hljs-keyword">Less</span> <span class="hljs-keyword">strict</span> <span class="hljs-keyword">than</span> <span class="hljs-keyword">build</span>-shell <span class="hljs-keyword">and</span> allows <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span>
+                      devDependencies.
+
+<span class="hljs-keyword">version</span>               Print esy <span class="hljs-keyword">version</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">exit</span>
+
+<span class="hljs-keyword">build</span> &lt;command&gt;       Run command inside the <span class="hljs-keyword">build</span> environment.
+b &lt;command&gt;
+
+x &lt;command&gt;           Run command <span class="hljs-keyword">as</span> <span class="hljs-keyword">if</span> the <span class="hljs-keyword">package</span> <span class="hljs-keyword">is</span> already installed.
+                      Useful <span class="hljs-keyword">for</span> testing.
+
+&lt;command&gt;             Executes &lt;command&gt; <span class="hljs-keyword">as</span> <span class="hljs-keyword">if</span> you had executed it inside <span class="hljs-keyword">of</span>
+                      esy shell.
+
+<span class="hljs-keyword">help</span>                  <span class="hljs-keyword">Show</span> detailed help.
+</span></code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="environment.html">← Environment</a><a class="docs-next button" href="how-it-works.html">How esy works →</a></div></div></div></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+          areas: [
+            // try to use the first query.
+            '.mainContainer, .docsNavContainer .toc .navWrapper',
+            // fallback
+            'body'
+          ],
+          link: '.docsNavContainer:not(.docsSliderActive) a',
+          update: {
+            script: false,
+          }
+        });
+        var languagesMenuItemCopy = document.getElementById("languages-menu");
+        languagesMenuItemCopy.addEventListener("click", function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        });</script></span></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: '0fd97db83891aa20810559812d9e69ac',
+                indexName: 'bucklescript',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
