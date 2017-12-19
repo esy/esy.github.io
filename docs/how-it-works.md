@@ -16,14 +16,12 @@ title: How esy works
 
 The `build` entry in the `esy` config object is an array of build steps executed in sequence.
 
-There are many build in environment variables that are automatically available
+There are many built-in environment variables that are automatically available
 to you in your build steps. Many of these have been adapted from other compiled
-package managers such as OPAM or Cargo. They are detailed in the [PJC][] spec
+package managers such as OPAM or Cargo. They are detailed in the [PJC](https://github.com/jordwalke/PackageJsonForCompilers) spec
 which `esy` attempts to adhere to.
 
-For example, the environment variables `$cur__target_dir` is an environment
-variable set up which points to the location that `esy` expects you to place
-your build artifacts into. `$cur__install` represents a directory that you are
+For example, the environment variable `$cur__target_dir` points to the location where `esy` expects to find your build artifacts. `$cur__install` represents a directory that you are
 expected to install your final artifacts into.
 
 A typical configuration might build the artifacts into the special build
@@ -46,8 +44,7 @@ When building projects, most globally cached artifacts are stored in `~/.esy`.
         ├── i # installation dir
         └── s # staging dir
 
-The global store's `_build` directory contains the logs for each package that
-is build (whether or not it was successful). The `_install` contains the final
+The global store's `_build` directory contains the logs for each package build (whether it was successful or not). The `_install` contains the final
 compilation artifacts that should be retained.
 
 #### Top Level Project Build Artifacts
@@ -119,7 +116,7 @@ which may refer to the "cur" package - the package *cur*ently being built.
 * `$cur__share`
 * `$cur__etc`
 
-This is based on [PJC][] spec.
+This is based on [PJC](https://github.com/jordwalke/PackageJsonForCompilers) spec.
 
 #### Integration with OPAM packages repository
 
@@ -135,8 +132,8 @@ project's `node_modules` directory.
 
 For example, after running the following command:
 
-```
-% esy add @opam/lwt
+```bash
+esy add @opam/lwt
 ```
 
 You can inspect `node_modules/@opam/lwt/package.json` for Esy build configuration.
@@ -147,16 +144,16 @@ Esy provides a command `esy import-opam` which can be used like this to convert
 OPAM packages manually into `package.json`-based packages. For example to
 convert an lwt package from a repo:
 
-```
-% git clone https://github.com/ocsigen/lwt
-% cd lwt
-% esy import-opam lwt 3.1.0 ./opam > package.json
+```bash
+git clone https://github.com/ocsigen/lwt
+cd lwt
+esy import-opam lwt 3.1.0 ./opam > package.json
 ```
 
 ##### Implementation notes
 
 Code for `esy install` command (along with `esy add` and `esy install-cache`
-commands) is based on a fork of yarn — [esy-ocaml/esy-install][].
+commands) is based on a fork of yarn — [esy-ocaml/esy-install](https://github.com/esy/esy-install).
 
 OPAM to `package.json` metadata convertation is handled by
-[esy-ocaml/esy-opam][].
+[esy-ocaml/esy-opam](https://github.com/esy-ocaml/esy-opam).

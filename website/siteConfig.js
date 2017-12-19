@@ -17,7 +17,7 @@ const siteConfig = {
   baseUrl: "/",
   projectName: "",
   headerLinks: [
-    { doc: "installation", label: "Docs" },
+    { doc: "what-why", label: "Docs" },
     { doc: "community", label: "Community" },
     { languages: true },
     { search: true },

@@ -15,9 +15,9 @@ title: Configuration
 `esy` knows how to build your package and its dependencies by looking at the
 `esy` config section in your `package.json`.
 
-This is how it looks for a [jbuilder][] based project:
+This is how it looks for a [jbuilder](https://jbuilder.readthedocs.io/) based project:
 
-```
+```json
 {
   "name": "example-package",
   "version": "1.0.0",
@@ -29,7 +29,7 @@ This is how it looks for a [jbuilder][] based project:
     "install": [
       "esy-installer"
     ],
-    "buildsinsource": "_build"
+    "buildsInSource": "_build"
   },
 
   "dependencies": {
@@ -49,7 +49,7 @@ specify how to build and install built artifacts.
 Describe how your project's default targets should be built by specifying
 a list of commands with `esy.build` config key.
 
-For example for a [jbuilder][] based project you'd want to call `jbuilder build`
+For example, for a [jbuilder](https://jbuilder.readthedocs.io/) based project you'd want to call `jbuilder build`
 command.
 
 ```
@@ -65,7 +65,7 @@ command.
 Commands specified in `esy.build` are always executed for the root's project
 when user calls `esy build` command.
 
-[Esy variable substitution syntax](#variable-substitution-syntax) can be used to
+[Esy variable substitution syntax](environment.md#variable-substitution-syntax) can be used to
 declare build commands.
 
 ##### `esy.install`
@@ -89,7 +89,7 @@ in opam format) that could be just a single `esy-installer` invokation. The
 command is a thin wrapper over `opam-installer` which configures it with Esy
 defaults.
 
-[Esy variable substitution syntax](#variable-substitution-syntax) can be used to
+[Esy variable substitution syntax](environment.md#variable-substitution-syntax) can be used to
 declare install commands.
 
 #### Enforcing Out Of Source Builds
@@ -106,7 +106,7 @@ There are three modes which are controlled by `esy.buildsInSource` config key:
   "esy": {
     "build": [...],
     "install": [...],
-    "buildInSource": "_build" | false | true,
+    "buildsInSource": "_build" | false | true,
   }
 }
 ```
@@ -118,20 +118,18 @@ those modes work:
 
   Build commands can place artifacts inside the `_build` directory of the
   project's root (`$cur__root/_build` in terms of Esy [build
-  environment](#build-environment)).
+  environment](environment.md#build-environment)).
 
-  This is what [jbuilder][] or [ocamlbuild][] (in its default configuration)
+  This is what [jbuilder](https://jbuilder.readthedocs.io/) or [ocamlbuild](https://github.com/ocaml/ocamlbuild/blob/master/manual/manual.adoc) (in its default configuration)
   users should be using as this matches those build systems' conventions.
 
-* `false` (default if key is ommited)
+* `false` (default if key is omitted)
 
   Build commands should use `$cur__target_dir` as the build directory.
 
 * `true`
 
-  Build commands cannot be configured to use a different directory than the
-  projects root directory. In this case Esy will defensively copy project's root
-  into `$cur__target_dir` and run build commands from there.
+  Projects are allowed to place build artifacts anywhere in their source tree, but not outside of their source tree. Otherwise, Esy will defensively copy project's root into `$cur__target_dir` and run build commands from there.
 
   This is the mode which should be used as the last resort as it degrades
-  perfomance of the builds greatly by placing correctness as a priority.
+  performance of the builds greatly by placing correctness as a priority.
