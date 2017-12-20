@@ -22,6 +22,11 @@
   width: auto;
   right: 0;
 }
+
+#search_input_react {
+  line-height: 30px !important;
+}
+
 @media only screen and (min-width: 1024px) {
   /* only targets language dropdown li, i swear */
   .nav-site > span > li {
@@ -39,7 +44,7 @@
   width: 800px;
   left: 0px;
   bottom: -400px;
-  animation:spin 750s linear infinite;
+  animation: spin 750s linear infinite;
   transition: opacity 2s;
 }
 
@@ -49,7 +54,11 @@
   }
 }
 
-@keyframes spin { 100% {transform:rotate(360deg); } }
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* overrides. Most of these should be upstreamed into docusaurus */
 
@@ -83,7 +92,7 @@
 .projectTitle {
   font-size: 50px;
   font-weight: bold;
-  font-family: proxima-nova,sans-serif;
+  font-family: proxima-nova, sans-serif;
 }
 
 .quickStartAndExamples .blockImage {

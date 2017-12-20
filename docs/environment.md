@@ -136,7 +136,7 @@ The following constructs are also allowed inside "interpolation" regions:
 * `/` : path separator (substituted with the platform's path separator)
 * `:` : env var value separator (substituted with platform's env var separator `:`/`;`).
 
-You may join many of these `esy` variables together inside of an interpolation region
+You can join many of these `esy` variables together inside of an interpolation region
 by separating the variables with spaces. The entire interpolation region will be substituted
 with the concatenation of the space separated `esy` variables.
 

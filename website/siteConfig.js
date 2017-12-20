@@ -17,7 +17,7 @@ const siteConfig = {
   baseUrl: "/",
   projectName: "",
   headerLinks: [
-    { doc: "installation", label: "Docs" },
+    { doc: "what-why", label: "Docs" },
     { doc: "community", label: "Community" },
     { languages: true },
     { search: true },
@@ -160,7 +160,7 @@ const siteConfig = {
     }
   },
   algolia: {
-    apiKey: "2d4ae48c321d57af794830e115f45864",
+    apiKey: "a7cfb79b829d08c14bd06ae075f9baac",
     indexName: "esy"
   }
 };

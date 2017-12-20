@@ -19,39 +19,46 @@ The typical workflow looks like this:
 
 0. Install esy:
 
+   ```bash
+   npm install -g esy
    ```
-   % npm install -g esy
+
+   If you had installed esy previously:
+
+   ```bash
+   npm uninstall --global --update esy
    ```
 
 1. Clone the project:
 
-   ```
-   % git clone git@github.com:esy-ocaml/esy-ocaml-project.git
-   % cd esy-ocaml-project
+   ```bash
+   git clone git@github.com:esy-ocaml/esy-ocaml-project.git
+   cd esy-ocaml-project
    ```
 
 1. Install project's dependencies source code:
 
-   ```
-   % esy install
+   ```bash
+   esy install
    ```
 
 1. Perform an initial build of the project's dependencies and of the project
    itself:
 
-   ```
-   % esy build
+   ```bash
+   esy build
    ```
 
 1. Test the compiled executables inside the project's environment:
 
-   ```
-   % esy ./_build/default/bin/hello.exe
+   ```bash
+   esy ./_build/default/bin/hello.exe
    ```
 
 1. Hack on project's source code and rebuild the project:
-   ```
-   % esy build
+
+   ```bash
+   esy build
    ```
 
 Also:
@@ -59,24 +66,25 @@ Also:
 6. It is possible to invoke any command from within the project's sandbox.
    For example build & run tests with:
 
-   ```
-   % esy make test
+   ```shell
+   esy make test
    ```
 
-   You can run any command command inside the project environment by just
+   You can run any command inside the project environment by just
    prefixing it with `esy`:
 
-   ```
-   % esy <anycommand>
+   ```bash
+   esy <anycommand>
    ```
 
 7. To shell into the project's sandbox:
 
-   ```
-   % esy shell
+   ```bash
+   esy shell
    ```
 
 8. For more options:
-   ```
-   % esy help
+
+   ```bash
+   esy help
    ```
