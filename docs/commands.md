@@ -16,7 +16,7 @@ List of all commands:
 
 Install dependencies declared in `package.json`:
 
-```
+```bash
 % esy install
 ```
 
@@ -36,7 +36,7 @@ project's build process.
 
 Example:
 
-```
+```bash
 % esy build
 ```
 
@@ -52,14 +52,14 @@ Run command `<anycommand>` in the build environment.
 
 For example, we can see which `ocamlfind` libraries are available:
 
-```
+```bash
 % esy build ocamlfind
 ```
 
 Another example usage would be to execute a build process for some specific
 build target:
 
-```
+```bash
 % esy build bin/hello.exe
 ```
 
@@ -72,7 +72,7 @@ Initialize shell with build environment.
 
 Example:
 
-```
+```bash
 % esy build-shell
 ```
 
@@ -91,7 +91,7 @@ Run command `<anycommand>` in command environment.
 
 Example:
 
-```
+```bash
 % esy vim ./bin/hello.re
 ```
 
@@ -104,7 +104,7 @@ Initialize shell with command environment.
 
 Example:
 
-```
+```bash
 % esy shell
 ```
 
@@ -129,7 +129,7 @@ Prints a dependency tree with all available libraries.
 
 Example:
 
-```
+```bash
 % esy ls-libs
 ```
 
@@ -139,7 +139,7 @@ Prints a dependency tree with status of each package.
 
 Example:
 
-```
+```bash
 % esy ls-builds
 ```
 
@@ -149,7 +149,7 @@ Prints build environment on stdout.
 
 Example:
 
-```
+```bash
 % esy build-env
 ```
 
@@ -159,7 +159,7 @@ Prints command environment on stdout.
 
 Example:
 
-```
+```bash
 % esy command-env
 ```
 
@@ -171,7 +171,7 @@ Adds a new dependency for a project.
 
 Example:
 
-```
+```bash
 % esy add @opam/lwt
 ```
 
@@ -190,7 +190,7 @@ The required argument `<release-type>` must be one of:
 
 Example:
 
-```
+```bash
 % esy release bin
 ```
 
@@ -200,13 +200,13 @@ Query esy configuration.
 
 List all configuration parameters:
 
-```
+```bash
 % esy config ls
 ```
 
 Query specific keys:
 
-```
+```bash
 % esy config get store-path
 ```
 
@@ -216,7 +216,7 @@ Import OPAM package metadata and produce corresponding esy metadata.
 
 Example:
 
-```
+```bash
 % esy import-opam lwt 3.0.0 ./lwt.opam > package.json
 ```
 
@@ -231,7 +231,7 @@ Export dependencies of the root project from a build store.
 
 Example:
 
-```
+```bash
 % esy export-dependencies
 ```
 
@@ -245,7 +245,7 @@ Export a single build out of a build store.
 
 Example:
 
-```
+```bash
 % esy export-build ~/.esy/3/i/ocaml-4.6.0-abcdef90
 ```
 
@@ -258,12 +258,12 @@ Import a single build into a build store.
 
 Import from a previously exported build:
 
-```
+```bash
 % esy import-build ./_export/ocaml-4.6.0-abcdef90.tar.gz
 ```
 
 Import from a build store:
 
-```
+```bash
 % esy import-build /path/to/build/store/3/i/ocaml-4.6.0-abcdef90
 ```
