@@ -6,7 +6,8 @@
       "configuration",
       "esy-configuration",
       "environment",
-      "commands"
+      "commands",
+      "concepts"
     ],
     "Advanced": [
       "release"

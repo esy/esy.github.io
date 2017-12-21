@@ -6,6 +6,7 @@
     "tagline": "Workflow for native development with Reason/OCaml.",
     "commands": "Commands",
     "community": "Community",
+    "concepts": "Concepts",
     "configuration": "Project Configuration",
     "development": "Development",
     "environment": "Environment",
