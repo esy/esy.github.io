@@ -8,7 +8,7 @@ title: Project Configuration
 ### Configuring Your `package.json`
 
 esy knows how to build your package and its dependencies by looking at the
-`"esy'` config section in your `package.json`.
+`"esy"` config section in your `package.json`.
 
 This is how it looks for a [jbuilder](https://jbuilder.readthedocs.io/) based project:
 

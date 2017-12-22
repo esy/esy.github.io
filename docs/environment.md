@@ -16,7 +16,7 @@ For each project esy manages:
   installation directories and expored environment. This is useful if you need
   an environment in which the current application appears installed.
 
-Each of the environments are consist of two parts:
+Each environment consists of two parts:
 
 1. Base environment provided by esy.
 2. Environment exported from the sandbox dependencies. There are several types
