@@ -24,7 +24,7 @@ const siteConfig = {
     { search: true },
     { href: "https://github.com/esy/esy", label: "GitHub" }
   ],
-  headerIcon: "img/reason-react-white.svg",
+  headerIcon: "img/block-white.svg",
   // footerIcon: "img/logo.svg",
   favicon: "img/reason-react-red.svg",
   /* colors for website */

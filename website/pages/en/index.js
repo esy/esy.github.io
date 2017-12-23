@@ -82,13 +82,15 @@ class HomeSplash extends React.Component {
       <div className="homeContainer">
         <div className="homeWrapperWrapper">
           <div className="wrapper homeWrapper">
-            <div className="projectTitle">{siteConfig.title}</div>
-
             <div className="homeWrapperInner">
-              <div className="homeTagLine">{siteConfig.tagline}</div>
+              <img src='img/block-red.svg' />
+              <div>
+                <div className="projectTitle">{siteConfig.title}</div>
+                <div className="homeTagLine">{siteConfig.tagline}</div>
+                {promoSection}
+              </div>
             </div>
 
-            {promoSection}
           </div>
         </div>
       </div>
