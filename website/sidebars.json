@@ -4,9 +4,17 @@
       "what-why",
       "getting-started",
       "configuration",
+      "esy-configuration",
       "environment",
-      "commands"
+      "commands",
+      "concepts"
     ],
-    "Advanced": ["how-it-works", "development"]
+    "Advanced": [
+      "release"
+    ],
+    "Internals": [
+      "how-it-works",
+      "development"
+    ]
   }
 }

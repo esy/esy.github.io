@@ -6,17 +6,21 @@
     "tagline": "Workflow for native development with Reason/OCaml.",
     "commands": "Commands",
     "community": "Community",
-    "configuration": "Configuration",
+    "concepts": "Concepts",
+    "configuration": "Project Configuration",
     "development": "Development",
     "environment": "Environment",
+    "esy-configuration": "esy Configuration",
     "getting-started": "Getting started",
     "how-it-works": "How esy works",
+    "release": "Building Releases",
     "what-why": "What & Why",
     "Docs": "Docs",
     "Community": "Community",
     "GitHub": "GitHub",
     "Workflow": "Workflow",
-    "Advanced": "Advanced"
+    "Advanced": "Advanced",
+    "Internals": "Internals"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
