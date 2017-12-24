@@ -1892,10 +1892,25 @@ footer .copyright {
 }
 
 .projectTitle {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
   font-family: proxima-nova, sans-serif;
+  margin: 16px 0;
 }
+
+.homeTagline {
+  margin: 16px 0;
+}
+
+@media (max-width: 1024px) {
+  .projectTitle {
+    /* Custom.css doesn't take priority over the defaults? Why not!?
+     * have to add important in the mean time.
+     */
+    font-size: 60px !important;
+  }
+}
+
 
 .quickStartAndExamples .blockImage {
   max-width: 226px;
