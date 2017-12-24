@@ -9,7 +9,7 @@
 
 const siteConfig = {
   title: "esy",
-  tagline: "Workflow for native development with Reason/OCaml.",
+  tagline: "Simple workflow for native Reason and OCaml",
   url: "https://esy.github.io",
   editUrl: "https://github.com/esy/esy.github.io/tree/source/docs/",
   translationRecruitingLink: "https://crowdin.com/project/esy-website",

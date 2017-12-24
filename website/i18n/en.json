@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Workflow for native development with Reason/OCaml.",
+    "tagline": "Simple workflow for native Reason and OCaml",
     "commands": "Commands",
     "community": "Community",
     "concepts": "Concepts",

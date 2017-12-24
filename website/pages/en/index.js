@@ -32,17 +32,12 @@ const pre = "```";
 const code = "`";
 
 const quickStart = `${pre}bash
-#Install esy
 npm install -g esy
 
-# Clone the example
-git clone git@github.com:esy-ocaml/esy-ocaml-project.git
-cd esy-ocaml-project
-
-# Install project's dependencies:
+# Clone example, install dependencies, then build
+git clone git@github.com:esy-ocaml/esy-reason-project.git
+cd esy-reason-project
 esy install
-
-# Perform an initial build:
 esy build
 ${pre}`;
 
@@ -111,23 +106,36 @@ class Index extends React.Component {
               align="center"
               contents={[
                 {
-                  title: "Simple workflow",
+                  title: "`package.json` Driven",
                   content:
-                    "Project metadata is managed inside a single `package.json`."
+                    "**Familiar** `npm` inspired dependency management."
                 },
                 {
-                  title: "Sandboxed environment",
+                  title: "Project Isolation",
                   content:
-                    "Use OCaml compilers and dependencies on a per project basis."
+                    "Develop **multiple projects** simultaneously without conflict."
                 },
                 {
-                  title: "Fast parallel builds",
+                  title: "Fast, Teleporting Builds",
                   content:
-                    "Global build cache automatically shared across all projects."
+                    "All local projects automatically share **build caches** with each-other and caches support **teleportation** across network."
+                },
+                {
+                  title: "Deterministic and Offline",
+                  content:
+                    "Generate **lock** files and dependency source **snapshots** for ultra-reliable, corporate-friendly builds. Network optional."
                 }
               ]}
-              layout="threeColumn"
+              layout="fourColumn"
             />
+          </Container>
+          <Container background="light" className="paddingBottom quickStartAndExamples homeCodeSnippet">
+            <div>
+              <h2>Quick Start</h2>
+              <MarkdownBlock>
+                {quickStart}
+              </MarkdownBlock>
+            </div>
           </Container>
         </div>
       </div>
