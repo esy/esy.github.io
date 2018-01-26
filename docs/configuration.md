@@ -34,6 +34,8 @@ This is how it looks for a [jbuilder](https://jbuilder.readthedocs.io/) based pr
 }
 ```
 
+For a [bsb-native](https://github.com/bsansouci/bsb-native) based project see the [esy-bsb-example](https://github.com/bsansouci/esy-bsb-example/blob/master/package.json)'s package.json
+
 ### Specify Build & Install Commands
 
 The crucial pieces of configuration are `esy.build` and `esy.install` keys, they
@@ -57,6 +59,8 @@ command.
 }
 ```
 
+For a [bsb-native](https://github.com/bsansouci/bsb-native) project you can simply call `bsb.exe`.
+
 Commands specified in `esy.build` are always executed for the root's project
 when user calls `esy build` command.
 
@@ -79,7 +83,7 @@ list of commands with `esy.install` config key.
 }
 ```
 
-For `jbuilder` based projects (and other projects which maintain `.install` file
+For `jbuilder` based projects and `bsb-native` based projects (and other projects which maintain `.install` file
 in opam format) that could be just a single `esy-installer` invokation. The
 command is a thin wrapper over `opam-installer` which configures it with Esy
 defaults.
