@@ -14,6 +14,7 @@ There are example projects:
 
 * [OCaml + jbuilder project](https://github.com/esy-ocaml/esy-ocaml-project)
 * [Reason + jbuilder project](https://github.com/esy-ocaml/esy-reason-project)
+* [Reason/OCaml + bsb-native project](https://github.com/bsansouci/esy-bsb-example)
 
 The typical workflow looks like this:
 
