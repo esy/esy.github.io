@@ -10,7 +10,7 @@ file, and then perform operations on that project.
 
 ### Try An Example
 
-There are example projects:
+Here are example projects:
 
 * [OCaml + jbuilder project](https://github.com/esy-ocaml/esy-ocaml-project)
 * [Reason + jbuilder project](https://github.com/esy-ocaml/esy-reason-project)
@@ -64,7 +64,7 @@ The typical workflow looks like this:
 
 Also:
 
-6. It is possible to invoke any command from within the project's sandbox.
+7. It is possible to invoke any command from within the project's sandbox.
    For example build & run tests with:
 
    ```shell
@@ -78,13 +78,13 @@ Also:
    esy <anycommand>
    ```
 
-7. To shell into the project's sandbox:
+8. To shell into the project's sandbox:
 
    ```bash
    esy shell
    ```
 
-8. For more options:
+9. For more options:
 
    ```bash
    esy help

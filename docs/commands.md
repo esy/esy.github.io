@@ -24,14 +24,14 @@ If file `esy.lock` (an analogue of `yarn.lock`) exists then it will be used to
 resolve dependencies' version constraints to concrete versions, otherwise
 constraints resolution will be performed and saved to a fresh `esy.lock`.
 
-This command is based on `yarn` and accepts the same command line arguments and
-options.
+This command is based on `yarn` and accepts the same [command line arguments and
+options](https://yarnpkg.com/lang/en/docs/cli/install/).
 
 ### `esy build`
 
 Ensure all dependencies are built and then execute the project's build commands.
 Note that esy tries to reuse built artifacts as much as possible, even across
-different sandboxes. That means that usually `esy build` executes only root
+different sandboxes. That means that usually `esy build` executes only the root
 project's build process.
 
 Example:
@@ -42,9 +42,9 @@ Example:
 
 ## Run commands in the specified environment
 
-These commands allow to execute arbitrary commands in esy's managed
-environments. For more info about environment types see [corresponding
-docs][environment.md].
+These commands allow executing arbitrary commands in esy's managed
+environments. For more info about environment types see the [corresponding
+docs](environment.md).
 
 ### `esy build <anycommand>`
 
@@ -76,7 +76,7 @@ Example:
 % esy build-shell
 ```
 
-If `<path/to/package>` argument is passed then the build shell is initialied for
+If a `<path/to/package>` argument is passed then the build shell is initialized for
 the specified package:
 
 ```
@@ -87,7 +87,7 @@ This command is useful for debugging failing builds.
 
 ### `esy <anycommand>`
 
-Run command `<anycommand>` in command environment.
+Run command `<anycommand>` in the command environment.
 
 Example:
 
@@ -95,7 +95,7 @@ Example:
 % esy vim ./bin/hello.re
 ```
 
-As command environment contains development time dependencies (like
+As the command environment contains development time dependencies (like
 `@opam/merlin`) `vim` program will have access to those.
 
 ### `esy shell`
@@ -110,7 +110,7 @@ Example:
 
 ### `esy x <anycommand>`
 
-Execute command `<anycommand>` in test environment.
+Execute command `<anycommand>` in the test environment.
 
 Example:
 
@@ -118,8 +118,8 @@ Example:
 % esy x hello
 ```
 
-This invocation puts root project's executables in `$PATH` thus it's useful to
-test the project as it was installed.
+This invocation puts the root project's executables in `$PATH` thus it's useful to
+test the project as if it were installed.
 
 ## Sandbox introspection
 
@@ -175,7 +175,7 @@ Example:
 % esy add @opam/lwt
 ```
 
-This is analogue of `yarn add` command and is based on it internally.
+This is an analogue of `yarn add` command and is based on it internally.
 
 ### `esy release <release-type>`
 
@@ -223,7 +223,7 @@ Example:
 ### `esy install-cache`
 
 Manage installation cache. This command is based on `yarn install-cache`
-comman and accepts the same command line options.
+command and accepts the same command line options.
 
 ### `esy export-dependencies`
 
@@ -235,8 +235,8 @@ Example:
 % esy export-dependencies
 ```
 
-The invocation above produces a set of tarballs inside `_export` directory.
-Those tarballs can be shipped to another host and imported into build store with
+The invocation above produces a set of tarballs inside the `_export` directory.
+Those tarballs can be shipped to another host and imported into build store with the
 `esy import-build` command.
 
 ### `esy export-build`

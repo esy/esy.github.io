@@ -4,7 +4,7 @@ title: Concepts
 ---
 
 This serves as a glossary and an overview of concepts used in esy with links to
-detailed guide.
+detailed guides.
 
 List of all concepts:
 

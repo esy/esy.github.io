@@ -5,12 +5,12 @@ title: What & Why
 
 ### For npm users
 
-For those familiar with [npm](https://npmjs.org/), esy allows to work with Reason/OCaml projects
-within the familiar npm-like workflow:
+For those familiar with [npm](https://npmjs.org/), esy allows working with Reason/OCaml projects
+within a familiar npm-like workflow:
 
 * Declare dependencies in `package.json`.
 
-* Install and build with `esy install` and `esy build` commands. Dependencies'
+* Install and build with the `esy install` and `esy build` commands. Dependencies'
   source code end up in `node_modules`.
 
 * Share your work with other developers by publishing on npm registry and/or github.
@@ -28,9 +28,9 @@ the `opam` tool, OPAM packages are still accessible with Esy):
 * Sandboxes project environment by exposing only those packages which are
   defined as dependencies.
 
-* Fast parallel builds which are agressively cached (even across different projects).
+* Fast parallel builds which are aggressively cached (even across different projects).
 
-* Keeps the ability to use packages published on OPAM repository.
+* Keeps the ability to use packages published on the OPAM repository.
 
 ### In depth
 
@@ -52,7 +52,7 @@ the `opam` tool, OPAM packages are still accessible with Esy):
 
 * Allows symlink workflows for local development (by enforcing out-of-source
   builds). This allows you to work on several projects locally, make changes to
-  one project and the projects that depend on it will automatically know they
+  one project, and the projects that depend on it will automatically know they
   need to rebuild themselves.
 
 * Run commands in project environment quickly `esy <anycommand>`.

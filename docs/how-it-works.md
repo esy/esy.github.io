@@ -14,7 +14,7 @@ title: How esy works
 
 ### Build Steps
 
-The `build` entry in the `esy` config object is an array of build steps executed in sequence.
+The `build` entry in the `esy` config object is an array of build steps to be executed in sequence.
 
 There are many built-in environment variables that are automatically available
 to you in your build steps. Many of these have been adapted from other compiled
@@ -44,7 +44,7 @@ When building projects, most globally cached artifacts are stored in `~/.esy`.
         ├── i # installation dir
         └── s # staging dir
 
-The global store's `_build` directory contains the logs for each package build (whether it was successful or not). The `_install` contains the final
+The global store's `_build` directory contains the logs for each package build (whether it was successful or not). The `_install` directory contains the final
 compilation artifacts that should be retained.
 
 #### Top Level Project Build Artifacts
@@ -52,15 +52,15 @@ compilation artifacts that should be retained.
 Not all artifacts are cached globally. Build artifacts for any symlinked
 dependencies (using `yarn link`) are stored in
 `./node_modules/.cache/_esy/store` which is just like the global store, but for
-your locally symlinked projects, and top level package.
+your locally symlinked projects and top level package.
 
-This local cache doesn't have the dirtyling logic as the global store for
+This local cache doesn't have the same dirtying logic as the global store for
 (non-symlinked) dependencies. Currently, both symlinked dependencies and your
-top level package are both rebuilt every time you run `esy build`.
+top level package are rebuilt every time you run `esy build`.
 
-Your top level package is build within its source tree, not in a copy of the
-source tree, but as always your package can (and should try to) respect the out
-of source destination `$cur__target_dir`.
+Your top level package is built within its source tree, not in a copy of the
+source tree, but as always your package can (and should try to) respect the output
+destination `$cur__target_dir`.
 
 Cached environment computations (for commands such as `esy cmd`) are stored in
 `./node_modules/.cache/_esy/bin/command-env`
@@ -94,7 +94,7 @@ Support for "ejecting" a build is computed and stored in
 #### Advanced Build Environment
 
 The following environment variables are related to the package that is
-currently being built, which might be _different_ than the package that
+currently being built, which might be _different_ from the package that
 owns the package.json where these variables occur. This is because
 when building a package, the build environment is computed by traversing
 its dependencies and aggregating exported environment variables transitively,
@@ -122,11 +122,11 @@ This is based on [PJC](https://github.com/jordwalke/PackageJsonForCompilers) spe
 
 ##### Consuming published OPAM packages
 
-During `esy install` command running Esy resolves dependencies within the
+During the running of the `esy install` command Esy resolves dependencies within the
 `@opam/*` npm scope using a special resolver which looks for a package in the
 OPAM repository.
 
-It converts OPAM package metadata into `package.json` with `esy` config section
+It converts OPAM package metadata into `package.json` with the `esy` config section
 inferred and installs the OPAM package like any regular package inside the
 project's `node_modules` directory.
 
@@ -152,8 +152,8 @@ esy import-opam lwt 3.1.0 ./opam > package.json
 
 ##### Implementation notes
 
-Code for `esy install` command (along with `esy add` and `esy install-cache`
+Code for the `esy install` command (along with the `esy add` and `esy install-cache`
 commands) is based on a fork of yarn — [esy-ocaml/esy-install](https://github.com/esy/esy-install).
 
-OPAM to `package.json` metadata convertation is handled by
+OPAM to `package.json` metadata conversion is handled by
 [esy-ocaml/esy-opam](https://github.com/esy-ocaml/esy-opam).

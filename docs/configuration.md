@@ -44,10 +44,9 @@ specify how to build and install built artifacts.
 #### `esy.build`
 
 Describe how your project's default targets should be built by specifying
-a list of commands with `esy.build` config key.
+a list of commands with the `esy.build` config key.
 
-For example, for a [jbuilder](https://jbuilder.readthedocs.io/) based project you'd want to call `jbuilder build`
-command.
+For example, for a [jbuilder](https://jbuilder.readthedocs.io/) based project you'd want to invoke `jbuilder build`.
 
 ```
 {
@@ -61,16 +60,16 @@ command.
 
 For a [bsb-native](https://github.com/bsansouci/bsb-native) project you can simply call `bsb.exe`.
 
-Commands specified in `esy.build` are always executed for the root's project
-when user calls `esy build` command.
+Commands specified in `esy.build` are always executed for the root project
+when the user calls `esy build` command.
 
 [Esy variable substitution syntax](environment.md#variable-substitution-syntax) can be used to
 declare build commands.
 
 #### `esy.install`
 
-Describe how you project's built artifacts should be installed by specifying a
-list of commands with `esy.install` config key.
+Describe how your project's built artifacts should be installed by specifying a
+list of commands with the `esy.install` config key.
 
 ```
 {
@@ -83,8 +82,8 @@ list of commands with `esy.install` config key.
 }
 ```
 
-For `jbuilder` based projects and `bsb-native` based projects (and other projects which maintain `.install` file
-in opam format) that could be just a single `esy-installer` invokation. The
+For `jbuilder` based projects and `bsb-native` based projects (and other projects which maintain an `.install` file
+in opam format) that could be just a single `esy-installer` invocation. The
 command is a thin wrapper over `opam-installer` which configures it with Esy
 defaults.
 
@@ -98,7 +97,7 @@ Esy requires packages to be built "out of source".
 It allows Esy to separate source code from built artifacts and thus reuse the
 same source code location with several projects/sandboxes.
 
-There are three modes which are controlled by `esy.buildsInSource` config key:
+There are three modes which are controlled by the `esy.buildsInSource` config key:
 
 ```
 {
@@ -128,10 +127,10 @@ those modes work:
 
 * `true`
 
-  Projects are allowed to place build artifacts anywhere in their source tree, but not outside of their source tree. Otherwise, Esy will defensively copy project's root into `$cur__target_dir` and run build commands from there.
+  Projects are allowed to place build artifacts anywhere in their source tree, but not outside of their source tree. Otherwise, Esy will defensively copy the project's root into `$cur__target_dir` and run build commands from there.
 
   This is the mode which should be used as the last resort as it degrades
-  performance of the builds greatly by placing correctness as a priority.
+  performance of the builds greatly by making correctness a priority.
 
 ### Exported Environment
 
@@ -139,7 +138,7 @@ Packages can configure how they contribute to the environment of the packages
 which depend on them.
 
 To add a new environment variable to the Esy [build
-environment](#build-environment) packages could specify `esy.exportedEnv` config
+environment](#build-environment) packages could specify an `esy.exportedEnv` config
 key:
 
 ```

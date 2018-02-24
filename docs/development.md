@@ -58,7 +58,7 @@ make bump-patch-version publish
 to bump the patch version, tag the release in git repository and publish the
 tarball on npm.
 
-To publish under custom release tag:
+To publish under a custom release tag:
 
 ```bash
 make RELEASE_TAG=next bump-patch-version publish

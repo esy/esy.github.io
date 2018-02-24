@@ -9,11 +9,11 @@ For each project esy manages:
 
 * **build environment** — an environment which is used to build the project
 
-* **command environment** — an environment which is used running text editors/IDE
-  and for general testing of the built artfiacts
+* **command environment** — an environment which is used for running text editors/IDE
+  and for general testing of the built artifacts
 
 * **test environment** — an environment which includes the current package's
-  installation directories and expored environment. This is useful if you need
+  installation directories and exported environment. This is useful if you need
   an environment in which the current application appears installed.
 
 Each environment consists of two parts:
@@ -23,11 +23,11 @@ Each environment consists of two parts:
    of dependencies esy can understand:
 
    1. **Regular dependencies** are dependencies which are needed at runtime.
-      They are listed in `"dependencies"` key of the `package.json`.
+      They are listed in the `"dependencies"` key of the `package.json`.
 
    2. **Development time dependencies** are dependencies which are needed only
-      during development. They are listed in `"devDependencies"` key of the
-      `package.json`. Examples: `@opam/merlin`, `@opam/ocamlformat` and so on.
+      during development. They are listed in the `"devDependencies"` key of the
+      `package.json`. Examples: `@opam/merlin`, `@opam/ocamlformat`, and so on.
 
    3. **Build time dependencies** (NOT IMPLEMENTED) are dependencies which are
       only needed during the build of the project. Support for those is **not
@@ -49,7 +49,7 @@ The following environment is provided by esy:
 * `$OCAMLPATH` contains all regular dependencies' `lib/` directories.
 
 Each regular dependency of the project can also contribute to the environment
-through `"esy.exportedEnv"` key in `package.json`. See [Project
+through the `"esy.exportedEnv"` key in `package.json`. See [Project
 Configuration](configuration.md) for details.
 
 ### Command Environment
@@ -66,7 +66,7 @@ The following environment is provided by esy:
   directories.
 
 Each regular **and development** dependency of the project can also contribute to the
-environment through `"esy.exportedEnv"` key in `package.json`. See [Project
+environment through the `"esy.exportedEnv"` key in `package.json`. See [Project
 Configuration](configuration.md) for details.
 
 ### Test Environment
@@ -83,7 +83,7 @@ The following environment is provided by esy:
   directories  **and project's own** `lib/` directory.
 
 Each regular dependency of the project **and the project itself** can also
-contribute to the environment through `"esy.exportedEnv"` key in `package.json`.
+contribute to the environment through the `"esy.exportedEnv"` key in `package.json`.
 See [Project Configuration](configuration.md) for details.
 
 ### Variable substitution syntax
@@ -101,14 +101,14 @@ For example, if you have a package named `@company/widget-factory` at version
 
 and `esy` will ensure that the build command is interpreted as `"make 1.2.0"`.
 In this example the interpolation region includes just one `esy` variable
-`@company/widget-factory.version` - which is substituted with the version number
+`@company/widget-factory.version` which is substituted with the version number
 for the `@company/widget-factory` package.
 
 Package specific variables are prefixed with their package name, followed
 by an `esy` "property" of that package such as `.version` or `.lib`.
 
 `esy` also provides some other built in variables which help with path and environment
-manipulation in a cross platform manner.
+manipulation in a cross-platform manner.
 
 **Supported Variable Substitutions:**
 
@@ -160,8 +160,8 @@ You can join many of these `esy` variables together inside of an interpolation r
 by separating the variables with spaces. The entire interpolation region will be substituted
 with the concatenation of the space separated `esy` variables.
 
-White space separating the variables are not included in the concatenation, If
-you need to insert a literal white space, use `' '` string literal.
+White space separating the variables is not included in the concatenation, If
+you need to insert a literal white space, use the `' '` string literal.
 
 Examples:
 
