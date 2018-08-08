@@ -55,12 +55,8 @@ project which uses <a href="https://github.com/ocaml/dune">dune</a> build system
 <pre><code class="hljs css languages- bash">git <span class="hljs-built_in">clone</span> git@github.com:esy-ocaml/esy-ocaml-project.git
 <span class="hljs-built_in">cd</span> esy-ocaml-project
 </code></pre></li>
-<li><p>Install project's dependencies source code:</p>
-<pre><code class="hljs css languages- bash">esy install
-</code></pre></li>
-<li><p>Perform an initial build of the project's dependencies and of the project
-itself:</p>
-<pre><code class="hljs css languages- bash">esy build
+<li><p>Install project's dependencies source code and perform an initial build of the project's dependencies and of the project itself:</p>
+<pre><code class="hljs css languages- bash">esy
 </code></pre></li>
 <li><p>Test the compiled executables inside the project's environment:</p>
 <pre><code class="hljs css languages- bash">esy ./_build/default/bin/hello.exe

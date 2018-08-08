@@ -43,6 +43,7 @@ with the following fields:</p>
 <li><a href="#esyinstall"><code>esy.install</code></a></li>
 <li><a href="#esybuildsinsource"><code>esy.buildsInSource</code></a></li>
 <li><a href="#esy.exportedenv"><code>esy.exportedEnv</code></a></li>
+<li><a href="#esy.buildenv"><code>esy.buildEnv</code></a></li>
 <li><a href="#scripts"><code>scripts</code></a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="specify-build-install-commands"></a><a href="#specify-build-install-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Specify Build &amp; Install Commands</h2>
@@ -51,12 +52,12 @@ specify how to build and install built artifacts.</p>
 <h3><a class="anchor" aria-hidden="true" id="esybuild"></a><a href="#esybuild" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.build</code></h3>
 <p>Describe how your project's default targets should be built by specifying
 a list of commands with <code>esy.build</code> config key.</p>
-<p>For example, for a <a href="https://jbuilder.readthedocs.io/">jbuilder</a> based project you'd want to call <code>jbuilder build</code>
+<p>For example, for a <a href="https://dune.readthedocs.io/">dune</a> based project you'd want to call <code>dune build</code>
 command.</p>
 <pre><code class="hljs">{
   <span class="hljs-attr">"esy"</span>: {
     <span class="hljs-attr">"build"</span>: [
-      <span class="hljs-string">"jbuilder build"</span>,
+      <span class="hljs-string">"dune build"</span>,
     ]
   }
 }
@@ -65,22 +66,28 @@ command.</p>
 when user calls <code>esy build</code> command.</p>
 <p><a href="/docs/en/environment.html#variable-substitution-syntax">esy variable substitution syntax</a> can be used to
 declare build commands.</p>
-<h3><a class="anchor" aria-hidden="true" id="esyinstall"></a><a href="#esyinstall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.install</code></h3>
-<p>Describe how you project's built artifacts should be installed by specifying a
-list of commands with <code>esy.install</code> config key.</p>
+<h3><a class="anchor" aria-hidden="true" id="esyinstall-optional"></a><a href="#esyinstall-optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.install</code> (optional)</h3>
+<p>By default <code>esy</code> will look for a single <code>*.install</code> file in the project root and
+will transfer all files mentioned there into <code>#{self.install}</code> directory.</p>
+<p>This follows the convention of opam and plays well with <code>dune</code> (which produces
+<code>*.install</code> files by default).</p>
+<p>But some projects can have special requirements:</p>
+<ul>
+<li><p>Some have multiple <code>*.install</code> files and want to install artifacts only from
+some of them.</p></li>
+<li><p>Some might require custom commands to be executed (for example <code>make install</code>).</p></li>
+</ul>
+<p>There's <code>esy.install</code> config key which allows to specify a set of commands which
+should move built artifacts to <code>#{self.install}</code> location.</p>
 <pre><code class="hljs">{
   <span class="hljs-attr">"esy"</span>: {
     <span class="hljs-attr">"build"</span>: [...],
     <span class="hljs-attr">"install"</span>: [
-      <span class="hljs-string">"esy-installer"</span>
+      <span class="hljs-string">"dune install --prefix=#{self.install}"</span>
     ]
   }
 }
 </code></pre>
-<p>For <code>jbuilder</code> based projects (and other projects which maintain <code>.install</code> file
-in opam format) that could be just a single <code>esy-installer</code> invokation. The
-command is a thin wrapper over <code>opam-installer</code> which configures it with esy
-defaults.</p>
 <p><a href="/docs/en/environment.html#variable-substitution-syntax">esy variable substitution syntax</a> can be used to
 declare install commands.</p>
 <h2><a class="anchor" aria-hidden="true" id="enforcing-out-of-source-builds"></a><a href="#enforcing-out-of-source-builds" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enforcing Out Of Source Builds</h2>
@@ -107,7 +114,7 @@ those modes work:</p>
 <p>Build commands can place artifacts inside the <code>_build</code> directory of the
 project's root (<code>$cur__root/_build</code> in terms of esy <a href="/docs/en/environment.html#build-environment">build
 environment</a>).</p>
-<p>This is what <a href="https://jbuilder.readthedocs.io/">jbuilder</a> or <a href="https://github.com/ocaml/ocamlbuild/blob/master/manual/manual.adoc">ocamlbuild</a> (in its default configuration)
+<p>This is what <a href="https://dune.readthedocs.io/">dune</a> or <a href="https://github.com/ocaml/ocamlbuild/blob/master/manual/manual.adoc">ocamlbuild</a> (in its default configuration)
 users should be using as this matches those build systems' conventions.</p></li>
 <li><p><code>false</code> (default if key is omitted)</p>
 <p>Build commands should use <code>$cur__target_dir</code> as the build directory.</p></li>
@@ -121,17 +128,17 @@ performance of the builds greatly by placing correctness as a priority.</p></li>
 <p>Similar to npm and yarn, esy supports custom project specific commands via
 <code>scripts</code> section inside <code>package.json</code>.</p>
 <pre><code class="hljs"><span class="hljs-string">"scripts"</span>: {
-  <span class="hljs-string">"build-dev"</span>: <span class="hljs-string">"esy build jbuilder build --dev"</span>,
-  <span class="hljs-string">"test"</span>: <span class="hljs-string">"jbuilder runtest"</span>,
+  <span class="hljs-string">"build-dev"</span>: <span class="hljs-string">"esy build dune build --dev"</span>,
+  <span class="hljs-string">"test"</span>: <span class="hljs-string">"dune runtest"</span>,
 }
 </code></pre>
 <p>The example above defines two new commands.</p>
 <p>The command <code>esy build-dev</code> is configured to be a shortcut for the following
 invocation:</p>
-<pre><code class="hljs css languages- bash">esy build jbuilder build --dev
+<pre><code class="hljs css languages- bash">esy build dune build
 </code></pre>
 <p>While the command <code>esy test</code> is defined to be a shortcut for:</p>
-<pre><code class="hljs css languages- bash">esy jbuilder runtest
+<pre><code class="hljs css languages- bash">esy dune runtest
 </code></pre>
 <p>Note that if a command in <code>scripts</code> is not prefixed with the <code>esy</code> command then it's made to automatically execute inside the <a href="/docs/en/environment.html#Command-Environment">Command Environment</a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="exported-environment"></a><a href="#exported-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exported Environment</h2>
@@ -146,8 +153,10 @@ key:</p>
   <span class="hljs-string">"esy"</span>: {
     ...,
     <span class="hljs-string">"exportedEnv"</span>: {
-      <span class="hljs-string">"CAML_LD_LIBRARY_PATH"</span>: <span class="hljs-string">"#{mylib.lib : $CAML_LD_LIBRARY_PATH}"</span>,
-      <span class="hljs-string">"scope"</span>: <span class="hljs-string">"global"</span>
+      <span class="hljs-string">"CAML_LD_LIBRARY_PATH"</span>: {
+        <span class="hljs-string">"val"</span>: <span class="hljs-string">"#{mylib.lib : $CAML_LD_LIBRARY_PATH}"</span>,
+        <span class="hljs-string">"scope"</span>: <span class="hljs-string">"global"</span>
+      }
     }
   }
 }
@@ -155,33 +164,48 @@ key:</p>
 <p>In the example above, the configuration <em>exports</em> (in this specific case it
 <em>re-exports</em> it) an environment variable called <code>$CAML_LD_LIBRARY_PATH</code> by
 appending <code>$mylib__lib</code> to its previous value.</p>
-<p>Also note the usage of <a href="#variable-substitution-syntax">esy variable substitution
+<p>Note the usage of <a href="#variable-substitution-syntax">esy variable substitution
 syntax</a> to define the value of the
 <code>$CAML_LD_LIBRARY_PATH</code> variable.</p>
+<h2><a class="anchor" aria-hidden="true" id="build-environment"></a><a href="#build-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Environment</h2>
+<p>Packages can configure their own build environment.</p>
+<p>Note that build environment doesn't propagate to dependencies, only current
+package's build process can access it.</p>
+<h3><a class="anchor" aria-hidden="true" id="esybuildenv"></a><a href="#esybuildenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.buildEnv</code></h3>
+<p>To add a new environment variable to the build environment of the current
+package there's <code>esy.buildEnv</code> config key:</p>
+<pre><code class="hljs">{
+  <span class="hljs-string">"name"</span>: <span class="hljs-string">"mylib"</span>,
+  <span class="hljs-string">"esy"</span>: {
+    ...,
+    <span class="hljs-string">"buildEnv"</span>: {
+      <span class="hljs-string">"DUNE_BUILD_DIR"</span>: <span class="hljs-string">"#{self.target_dir}"</span>
+    }
+  }
+}
+</code></pre>
+<p>Note the usage of <a href="#variable-substitution-syntax">esy variable substitution
+syntax</a> to define the value of the
+<code>$DUNE_BUILD_DIR</code> variable.</p>
 <h2><a class="anchor" aria-hidden="true" id="example-dune-jbuilder"></a><a href="#example-dune-jbuilder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: dune (jbuilder)</h2>
-<p>This is how it looks for a <a href="https://jbuilder.readthedocs.io/">dune</a> (formely
+<p>This is how it looks for a <a href="https://dune.readthedocs.io/">dune</a> (formely
 jbuilder) based project:</p>
 <pre><code class="hljs css languages- json">{
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"my-dune-project"</span>,
   <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
 
   <span class="hljs-attr">"esy"</span>: {
-    <span class="hljs-attr">"build"</span>: [
-      <span class="hljs-string">"jbuilder build"</span>
-    ],
-    <span class="hljs-attr">"install"</span>: [
-      <span class="hljs-string">"esy-installer"</span>
-    ],
-    <span class="hljs-attr">"buildsInSource"</span>: <span class="hljs-string">"_build"</span>
+    <span class="hljs-attr">"build"</span>: [<span class="hljs-string">"dune build"</span>],
+    <span class="hljs-attr">"buildEnv"</span>: {<span class="hljs-attr">"DUNE_BUILD_DIR"</span>: <span class="hljs-string">"#{self.target_dir}"</span>}
   },
 
   <span class="hljs-attr">"dependencies"</span>: {
-    <span class="hljs-attr">"@opam/jbuilder"</span>: <span class="hljs-string">"*"</span>,
-    <span class="hljs-attr">"@esy-ocaml/esy-installer"</span>
+    <span class="hljs-attr">"@opam/dune"</span>: <span class="hljs-string">"*"</span>,
+    <span class="hljs-attr">"ocaml"</span>: <span class="hljs-string">"*"</span>
   }
 }
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/getting-started.html">← Getting started</a><a class="docs-next button" href="/docs/en/esy-configuration.html">Configuration →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#packagejson">package.json</a></li><li><a href="#specify-build-install-commands">Specify Build &amp; Install Commands</a><ul class="toc-headings"><li><a href="#esybuild"><code>esy.build</code></a></li><li><a href="#esyinstall"><code>esy.install</code></a></li></ul></li><li><a href="#enforcing-out-of-source-builds">Enforcing Out Of Source Builds</a><ul class="toc-headings"><li><a href="#esybuildsinsource"><code>esy.buildsInSource</code></a></li></ul></li><li><a href="#project-specific-commands">Project Specific Commands</a><ul class="toc-headings"><li><a href="#scripts"><code>scripts</code></a></li></ul></li><li><a href="#exported-environment">Exported Environment</a><ul class="toc-headings"><li><a href="#esyexportedenv"><code>esy.exportedEnv</code></a></li></ul></li><li><a href="#example-dune-jbuilder">Example: dune (jbuilder)</a></li></ul></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/getting-started.html">← Getting started</a><a class="docs-next button" href="/docs/en/esy-configuration.html">Configuration →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#packagejson">package.json</a></li><li><a href="#specify-build-install-commands">Specify Build &amp; Install Commands</a><ul class="toc-headings"><li><a href="#esybuild"><code>esy.build</code></a></li><li><a href="#esyinstall-optional"><code>esy.install</code> (optional)</a></li></ul></li><li><a href="#enforcing-out-of-source-builds">Enforcing Out Of Source Builds</a><ul class="toc-headings"><li><a href="#esybuildsinsource"><code>esy.buildsInSource</code></a></li></ul></li><li><a href="#project-specific-commands">Project Specific Commands</a><ul class="toc-headings"><li><a href="#scripts"><code>scripts</code></a></li></ul></li><li><a href="#exported-environment">Exported Environment</a><ul class="toc-headings"><li><a href="#esyexportedenv"><code>esy.exportedEnv</code></a></li></ul></li><li><a href="#build-environment">Build Environment</a><ul class="toc-headings"><li><a href="#esybuildenv"><code>esy.buildEnv</code></a></li></ul></li><li><a href="#example-dune-jbuilder">Example: dune (jbuilder)</a></li></ul></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
           areas: [
             // try to use the first query.
             '.mainContainer, .docsNavContainer .toc .navWrapper',
