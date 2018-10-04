@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Commands · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Reference of all available esy commands. The most common commands are [`esy"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Commands · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="Reference of all available esy commands. The most common commands are [`esy"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/commands.html">Français</a></li><li><a href="/docs/ru/commands.html">Русский</a></li><li><a href="/docs/zh-CN/commands.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Commands · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Reference of all available esy commands. The most common commands are [`esy install`](#esy-install) and [`esy build`](#esy-build)."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Commands · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="Reference of all available esy commands. The most common commands are [`esy install`](#esy-install) and [`esy build`](#esy-build)."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/commands.html">Français</a></li><li><a href="/docs/ru/commands.html">Русский</a></li><li><a href="/docs/zh-CN/commands.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -26,6 +26,10 @@
                 var toggler = document.querySelector(togglerSelector);
                 var target = document.querySelector(targetSelector);
 
+                if (!toggler) {
+                  return;
+                }
+
                 toggler.onclick = function(event) {
                   event.preventDefault();
 
@@ -33,13 +37,13 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/commands.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Commands</h1></header><article><div><span><p>Reference of all available esy commands. The most common commands are <a href="#esy-install"><code>esy install</code></a> and <a href="#esy-build"><code>esy build</code></a>.</p>
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/commands.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Commands</h1></header><article><div><span><p>Reference of all available esy commands. The most common commands are <a href="#esy-install"><code>esy install</code></a> and <a href="#esy-build"><code>esy build</code></a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="main-commands"></a><a href="#main-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Main commands</h2>
 <h3><a class="anchor" aria-hidden="true" id="esy"></a><a href="#esy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy</code></h3>
 <p>The default command combines <code>esy install</code> and <code>esy build</code> and runs them in consecutively.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-install"></a><a href="#esy-install" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy install</code></h3>
 <p>Install dependencies declared in <code>package.json</code>:</p>
-<pre><code class="hljs css languages- bash">% esy install
+<pre><code class="hljs css language-bash">% esy install
 </code></pre>
 <p>If the file <code>esy.lock</code> (an analogue of <code>yarn.lock</code>) exists then it will be used to
 resolve dependencies' version constraints to concrete versions, otherwise
@@ -52,7 +56,7 @@ Note that esy tries to reuse built artifacts as much as possible, even across
 different sandboxes. That means that usually <code>esy build</code> executes only root
 project's build process.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy build
+<pre><code class="hljs css language-bash">% esy build
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="run-commands-in-the-specified-environment"></a><a href="#run-commands-in-the-specified-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run commands in the specified environment</h2>
 <p>These commands allow to execute arbitrary commands in esy's managed
@@ -61,18 +65,18 @@ docs][environment.md].</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-build-anycommand"></a><a href="#esy-build-anycommand" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy build &lt;anycommand&gt;</code></h3>
 <p>Run command <code>&lt;anycommand&gt;</code> in the build environment.</p>
 <p>For example, we can see which <code>ocamlfind</code> libraries are available:</p>
-<pre><code class="hljs css languages- bash">% esy build ocamlfind
+<pre><code class="hljs css language-bash">% esy build ocamlfind
 </code></pre>
 <p>Another example usage would be to execute a build process for some specific
 build target:</p>
-<pre><code class="hljs css languages- bash">% esy build bin/hello.exe
+<pre><code class="hljs css language-bash">% esy build bin/hello.exe
 </code></pre>
 <p>This is useful when you want to perform a build just for a subset of build
 outputs.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-build-shell-path-to-package"></a><a href="#esy-build-shell-path-to-package" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy build-shell [&lt;path/to/package&gt;]</code></h3>
 <p>Initialize shell with build environment.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy build-shell
+<pre><code class="hljs css language-bash">% esy build-shell
 </code></pre>
 <p>If <code>&lt;path/to/package&gt;</code> argument is passed then the build shell is initialied for
 the specified package:</p>
@@ -82,14 +86,14 @@ the specified package:</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-anycommand"></a><a href="#esy-anycommand" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy &lt;anycommand&gt;</code></h3>
 <p>Run command <code>&lt;anycommand&gt;</code> in command environment.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy vim ./bin/hello.re
+<pre><code class="hljs css language-bash">% esy vim ./bin/hello.re
 </code></pre>
 <p>As command environment contains development time dependencies (like
 <code>@opam/merlin</code>) <code>vim</code> program will have access to those.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-shell"></a><a href="#esy-shell" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy shell</code></h3>
 <p>Initialize shell with command environment.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy shell
+<pre><code class="hljs css language-bash">% esy shell
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-x-anycommand"></a><a href="#esy-x-anycommand" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy x &lt;anycommand&gt;</code></h3>
 <p>Execute command <code>&lt;anycommand&gt;</code> in test environment.</p>
@@ -102,30 +106,29 @@ test the project as it was installed.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-ls-libs"></a><a href="#esy-ls-libs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy ls-libs</code></h3>
 <p>Prints a dependency tree with all available libraries.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy ls-libs
+<pre><code class="hljs css language-bash">% esy ls-libs
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-ls-builds"></a><a href="#esy-ls-builds" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy ls-builds</code></h3>
 <p>Prints a dependency tree with status of each package.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy ls-builds
+<pre><code class="hljs css language-bash">% esy ls-builds
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-build-env"></a><a href="#esy-build-env" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy build-env</code></h3>
 <p>Prints build environment on stdout.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy build-env
+<pre><code class="hljs css language-bash">% esy build-env
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-command-env"></a><a href="#esy-command-env" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy command-env</code></h3>
 <p>Prints command environment on stdout.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy <span class="hljs-built_in">command</span>-env
+<pre><code class="hljs css language-bash">% esy <span class="hljs-built_in">command</span>-env
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="other-commands"></a><a href="#other-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other commands</h2>
 <h3><a class="anchor" aria-hidden="true" id="esy-add"></a><a href="#esy-add" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy add</code></h3>
 <p>Adds a new dependency for a project.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy add @opam/lwt
+<pre><code class="hljs css language-bash">% esy add @opam/lwt
 </code></pre>
-<p>This is analogue of <code>yarn add</code> command and is based on it internally.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-release"></a><a href="#esy-release" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy release</code></h3>
 <p>Produce an npm package with pre built binaries for the current platform inside
 the <code>_release</code> directory.</p>
@@ -133,15 +136,15 @@ the <code>_release</code> directory.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-config"></a><a href="#esy-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy config</code></h3>
 <p>Query esy configuration.</p>
 <p>List all configuration parameters:</p>
-<pre><code class="hljs css languages- bash">% esy config ls
+<pre><code class="hljs css language-bash">% esy config ls
 </code></pre>
 <p>Query specific keys:</p>
-<pre><code class="hljs css languages- bash">% esy config get store-path
+<pre><code class="hljs css language-bash">% esy config get store-path
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-import-opam-pkg-name-pkg-version-path-to-opam-file"></a><a href="#esy-import-opam-pkg-name-pkg-version-path-to-opam-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy import-opam &lt;pkg-name&gt; &lt;pkg-version&gt; &lt;path-to-opam-file&gt;</code></h3>
 <p>Import OPAM package metadata and produce corresponding esy metadata.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy import-opam lwt 3.0.0 ./lwt.opam &gt; package.json
+<pre><code class="hljs css language-bash">% esy import-opam lwt 3.0.0 ./lwt.opam &gt; package.json
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="esy-install-cache"></a><a href="#esy-install-cache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy install-cache</code></h3>
 <p>Manage installation cache. This command is based on <code>yarn install-cache</code>
@@ -149,7 +152,7 @@ comman and accepts the same command line options.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-export-dependencies"></a><a href="#esy-export-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy export-dependencies</code></h3>
 <p>Export dependencies of the root project from a build store.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy <span class="hljs-built_in">export</span>-dependencies
+<pre><code class="hljs css language-bash">% esy <span class="hljs-built_in">export</span>-dependencies
 </code></pre>
 <p>The invocation above produces a set of tarballs inside <code>_export</code> directory.
 Those tarballs can be shipped to another host and imported into build store with
@@ -157,19 +160,19 @@ Those tarballs can be shipped to another host and imported into build store with
 <h3><a class="anchor" aria-hidden="true" id="esy-export-build"></a><a href="#esy-export-build" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy export-build</code></h3>
 <p>Export a single build out of a build store.</p>
 <p>Example:</p>
-<pre><code class="hljs css languages- bash">% esy <span class="hljs-built_in">export</span>-build ~/.esy/3/i/ocaml-4.6.0-abcdef90
+<pre><code class="hljs css language-bash">% esy <span class="hljs-built_in">export</span>-build ~/.esy/3/i/ocaml-4.6.0-abcdef90
 </code></pre>
 <p>This commands produces <code>_export/ocaml-4.6.0-abcdef90.tar.gz</code> tarball which can
 be imported into another build store with <code>esy import-build</code> command.</p>
 <h3><a class="anchor" aria-hidden="true" id="esy-import-build"></a><a href="#esy-import-build" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy import-build</code></h3>
 <p>Import a single build into a build store.</p>
 <p>Import from a previously exported build:</p>
-<pre><code class="hljs css languages- bash">% esy import-build ./_export/ocaml-4.6.0-abcdef90.tar.gz
+<pre><code class="hljs css language-bash">% esy import-build ./_export/ocaml-4.6.0-abcdef90.tar.gz
 </code></pre>
 <p>Import from a build store:</p>
-<pre><code class="hljs css languages- bash">% esy import-build /path/to/build/store/3/i/ocaml-4.6.0-abcdef90
+<pre><code class="hljs css language-bash">% esy import-build /path/to/build/store/3/i/ocaml-4.6.0-abcdef90
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/environment.html">← Environment</a><a class="docs-next button" href="/docs/en/concepts.html">Concepts →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#main-commands">Main commands</a><ul class="toc-headings"><li><a href="#esy"><code>esy</code></a></li><li><a href="#esy-install"><code>esy install</code></a></li><li><a href="#esy-build"><code>esy build</code></a></li></ul></li><li><a href="#run-commands-in-the-specified-environment">Run commands in the specified environment</a><ul class="toc-headings"><li><a href="#esy-build-anycommand"><code>esy build</code></a></li><li><a href="#esy-build-shell-path-to-package"><code>esy build-shell []</code></a></li><li><a href="#esy-anycommand"><code>esy</code></a></li><li><a href="#esy-shell"><code>esy shell</code></a></li><li><a href="#esy-x-anycommand"><code>esy x</code></a></li></ul></li><li><a href="#sandbox-introspection">Sandbox introspection</a><ul class="toc-headings"><li><a href="#esy-ls-libs"><code>esy ls-libs</code></a></li><li><a href="#esy-ls-builds"><code>esy ls-builds</code></a></li><li><a href="#esy-build-env"><code>esy build-env</code></a></li><li><a href="#esy-command-env"><code>esy command-env</code></a></li></ul></li><li><a href="#other-commands">Other commands</a><ul class="toc-headings"><li><a href="#esy-add"><code>esy add</code></a></li><li><a href="#esy-release"><code>esy release</code></a></li><li><a href="#esy-config"><code>esy config</code></a></li><li><a href="#esy-import-opam-pkg-name-pkg-version-path-to-opam-file"><code>esy import-opam</code></a></li><li><a href="#esy-install-cache"><code>esy install-cache</code></a></li><li><a href="#esy-export-dependencies"><code>esy export-dependencies</code></a></li><li><a href="#esy-export-build"><code>esy export-build</code></a></li><li><a href="#esy-import-build"><code>esy import-build</code></a></li></ul></li></ul></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/environment.html"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/en/concepts.html"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#main-commands">Main commands</a><ul class="toc-headings"><li><a href="#esy"><code>esy</code></a></li><li><a href="#esy-install"><code>esy install</code></a></li><li><a href="#esy-build"><code>esy build</code></a></li></ul></li><li><a href="#run-commands-in-the-specified-environment">Run commands in the specified environment</a><ul class="toc-headings"><li><a href="#esy-build-anycommand"><code>esy build</code></a></li><li><a href="#esy-build-shell-path-to-package"><code>esy build-shell []</code></a></li><li><a href="#esy-anycommand"><code>esy</code></a></li><li><a href="#esy-shell"><code>esy shell</code></a></li><li><a href="#esy-x-anycommand"><code>esy x</code></a></li></ul></li><li><a href="#sandbox-introspection">Sandbox introspection</a><ul class="toc-headings"><li><a href="#esy-ls-libs"><code>esy ls-libs</code></a></li><li><a href="#esy-ls-builds"><code>esy ls-builds</code></a></li><li><a href="#esy-build-env"><code>esy build-env</code></a></li><li><a href="#esy-command-env"><code>esy command-env</code></a></li></ul></li><li><a href="#other-commands">Other commands</a><ul class="toc-headings"><li><a href="#esy-add"><code>esy add</code></a></li><li><a href="#esy-release"><code>esy release</code></a></li><li><a href="#esy-config"><code>esy config</code></a></li><li><a href="#esy-import-opam-pkg-name-pkg-version-path-to-opam-file"><code>esy import-opam</code></a></li><li><a href="#esy-install-cache"><code>esy install-cache</code></a></li><li><a href="#esy-export-dependencies"><code>esy export-dependencies</code></a></li><li><a href="#esy-export-build"><code>esy export-build</code></a></li><li><a href="#esy-import-build"><code>esy import-build</code></a></li></ul></li></ul></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
           areas: [
             // try to use the first query.
             '.mainContainer, .docsNavContainer .toc .navWrapper',

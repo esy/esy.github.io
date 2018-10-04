@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Offline Builds · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="esy supports workflow there builds should happen on a machine which is"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Offline Builds · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="esy supports workflow there builds should happen on a machine which is"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/offline.html">Français</a></li><li><a href="/docs/ru/offline.html">Русский</a></li><li><a href="/docs/zh-CN/offline.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Offline Builds · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="esy supports workflow there builds should happen on a machine which is"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Offline Builds · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="esy supports workflow there builds should happen on a machine which is"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/offline.html">Français</a></li><li><a href="/docs/ru/offline.html">Русский</a></li><li><a href="/docs/zh-CN/offline.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -26,6 +26,10 @@
                 var toggler = document.querySelector(togglerSelector);
                 var target = document.querySelector(targetSelector);
 
+                if (!toggler) {
+                  return;
+                }
+
                 toggler.onclick = function(event) {
                   event.preventDefault();
 
@@ -33,13 +37,13 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/offline.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Offline Builds</h1></header><article><div><span><p>esy supports workflow there builds should happen on a machine which is
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/offline.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Offline Builds</h1></header><article><div><span><p>esy supports workflow there builds should happen on a machine which is
 completely offline (doesn't have network access).</p>
 <p>To do that you need to use <code>--cache-tarballs-path</code> option of <code>esy install</code>
 command:</p>
 <ol>
 <li><p>On a machine which has network access execute:</p>
-<pre><code class="hljs css languages- bash">% esy install --cache-tarballs-path=./_esyinstall
+<pre><code class="hljs css language-bash">% esy install --cache-tarballs-path=./_esyinstall
 </code></pre>
 <p>this will create <code>_esyinstall</code> directory with all downloaded dependencies'
 sources.</p></li>
@@ -47,15 +51,15 @@ sources.</p></li>
 <code>node_modules</code> as it could contain platform specific artifacts) to a machine
 which doesn't have access to an external network.</p></li>
 <li><p>Execute the same installation command</p>
-<pre><code class="hljs css languages- bash">% esy install --cache-tarballs-path=./_esyinstall
+<pre><code class="hljs css language-bash">% esy install --cache-tarballs-path=./_esyinstall
 </code></pre>
 <p>which will populate <code>node_modules</code> directory with extracted sources.</p></li>
 <li><p>Run</p>
-<pre><code class="hljs css languages- bash">% esy build
+<pre><code class="hljs css language-bash">% esy build
 </code></pre>
 <p>and other esy commands.</p></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/opam-workflow.html">← Developing opam projects</a><a class="docs-next button" href="/docs/en/how-it-works.html">How esy works →</a></div></div></div><nav class="onPageNav"></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/opam-workflow.html"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/en/how-it-works.html"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
           areas: [
             // try to use the first query.
             '.mainContainer, .docsNavContainer .toc .navWrapper',

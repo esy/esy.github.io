@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting started · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Esy provides a single command called `esy`."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting started · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="Esy provides a single command called `esy`."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/getting-started.html">Français</a></li><li><a href="/docs/ru/getting-started.html">Русский</a></li><li><a href="/docs/zh-CN/getting-started.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting started · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Esy provides a single command called `esy`."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting started · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="Esy provides a single command called `esy`."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/fr/getting-started.html">Français</a></li><li><a href="/docs/ru/getting-started.html">Русский</a></li><li><a href="/docs/zh-CN/getting-started.html">中文</a></li><li><a href="https://crowdin.com/project/esy-website" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -26,6 +26,10 @@
                 var toggler = document.querySelector(togglerSelector);
                 var target = document.querySelector(targetSelector);
 
+                if (!toggler) {
+                  return;
+                }
+
                 toggler.onclick = function(event) {
                   event.preventDefault();
 
@@ -33,7 +37,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/getting-started.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Getting started</h1></header><article><div><span><p>Esy provides a single command called <code>esy</code>.</p>
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/getting-started.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Getting started</h1></header><article><div><span><p>Esy provides a single command called <code>esy</code>.</p>
 <p>The typical workflow is to <code>cd</code> into a directory that contains a <code>package.json</code>
 file, and then perform operations on that project.</p>
 <p>There are example projects:</p>
@@ -46,43 +50,43 @@ project which uses <a href="https://github.com/ocaml/dune">dune</a> build system
 <p>The typical workflow looks like this:</p>
 <ol>
 <li><p>Install esy:</p>
-<pre><code class="hljs css languages- bash">npm install -g esy
+<pre><code class="hljs css language-bash">npm install -g esy
 </code></pre>
 <p>If you had installed esy previously:</p>
-<pre><code class="hljs css languages- bash">npm uninstall --global --update esy
+<pre><code class="hljs css language-bash">npm uninstall --global --update esy
 </code></pre></li>
 <li><p>Clone the project:</p>
-<pre><code class="hljs css languages- bash">git <span class="hljs-built_in">clone</span> git@github.com:esy-ocaml/esy-ocaml-project.git
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> git@github.com:esy-ocaml/esy-ocaml-project.git
 <span class="hljs-built_in">cd</span> esy-ocaml-project
 </code></pre></li>
 <li><p>Install project's dependencies source code and perform an initial build of the project's dependencies and of the project itself:</p>
-<pre><code class="hljs css languages- bash">esy
+<pre><code class="hljs css language-bash">esy
 </code></pre></li>
 <li><p>Test the compiled executables inside the project's environment:</p>
-<pre><code class="hljs css languages- bash">esy ./_build/default/bin/hello.exe
+<pre><code class="hljs css language-bash">esy ./_build/default/bin/hello.exe
 </code></pre></li>
 <li><p>Hack on project's source code and rebuild the project:</p>
-<pre><code class="hljs css languages- bash">esy build
+<pre><code class="hljs css language-bash">esy build
 </code></pre></li>
 </ol>
 <p>Also:</p>
 <ol start="6">
 <li><p>It is possible to invoke any command from within the project's sandbox.
 For example build &amp; run tests with:</p>
-<pre><code class="hljs css languages- shell">esy make test
+<pre><code class="hljs css language-shell">esy make test
 </code></pre>
 <p>You can run any command inside the project environment by just
 prefixing it with <code>esy</code>:</p>
-<pre><code class="hljs css languages- bash">esy &lt;anycommand&gt;
+<pre><code class="hljs css language-bash">esy &lt;anycommand&gt;
 </code></pre></li>
 <li><p>To shell into the project's sandbox:</p>
-<pre><code class="hljs css languages- bash">esy shell
+<pre><code class="hljs css language-bash">esy shell
 </code></pre></li>
 <li><p>For more options:</p>
-<pre><code class="hljs css languages- bash">esy <span class="hljs-built_in">help</span>
+<pre><code class="hljs css language-bash">esy <span class="hljs-built_in">help</span>
 </code></pre></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/what-why.html">← What &amp; Why</a><a class="docs-next button" href="/docs/en/configuration.html">Project Configuration →</a></div></div></div><nav class="onPageNav"></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/what-why.html"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/en/configuration.html"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"></nav></div><span><script src="/js/redirectBlog.js"></script><script src="/js/pjax-api.js"></script><script>window.foo = new Pjax({
           areas: [
             // try to use the first query.
             '.mainContainer, .docsNavContainer .toc .navWrapper',
