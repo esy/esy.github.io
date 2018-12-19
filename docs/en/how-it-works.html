@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>How esy works · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This document describe esy internals.&lt;/p&gt;
-"/><meta name="docsearch:version" content="0.3.4"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="How esy works · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;This document describe esy internals.&lt;/p&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><a href="/en/versions.html"><h3>0.3.4</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Getting started</a></li><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/community.html" target="_self">Community</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Internals</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/using-repo-sources-workflow.html">Using Unreleased Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/linking-workflow.html">Linking Packages in Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/concepts.html">Concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/en/configuration.html">Project Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/environment.html">Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/en/commands.html">Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/esy-configuration.html">Configuration</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Community</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/community.html">Community</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/multiple-sandboxes.html">Multiple Project Sandboxes</a></li><li class="navListItem"><a class="navItem" href="/docs/en/release.html">Building Releases</a></li><li class="navListItem"><a class="navItem" href="/docs/en/opam-workflow.html">Developing opam projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/offline.html">Offline Builds</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internals</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/how-it-works.html">How esy works</a></li><li class="navListItem"><a class="navItem" href="/docs/en/development.html">Development</a></li></ul></div></div></section></div><script>
+"/><meta name="docsearch:version" content="0.4.4"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="How esy works · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;This document describe esy internals.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><a href="/en/versions.html"><h3>0.4.4</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Getting started</a></li><li class="siteNavGroupActive"><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/community.html" target="_self">Community</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Internals</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/using-repo-sources-workflow.html">Using Unreleased Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/linking-workflow.html">Linking Packages in Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/concepts.html">Concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/en/configuration.html">Project Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/environment.html">Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/en/commands.html">Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/low-level-commands.html">Low Level Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/esy-configuration.html">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/node-compatibility.html">Node/npm Compatibility</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Community</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/community.html">Community</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/multiple-sandboxes.html">Multiple Project Sandboxes</a></li><li class="navListItem"><a class="navItem" href="/docs/en/npm-release.html">Building npm Releases</a></li><li class="navListItem"><a class="navItem" href="/docs/en/opam-workflow.html">Workflow for opam Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/c-workflow.html">Workflow for C/C++ Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/offline.html">Offline Builds</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internals</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/how-it-works.html">How esy works</a></li><li class="navListItem"><a class="navItem" href="/docs/en/development.html">Development</a></li></ul></div></div></section></div><script>
             document.addEventListener('DOMContentLoaded', function() {
               createToggler('#navToggler', '#docsNav', 'docsSliderActive');
               createToggler('#tocToggler', 'body', 'tocActive');
@@ -38,21 +38,19 @@ supported).</p>
 point where all artifacts are built consists of the following steps:</p>
 <ul>
 <li><p><strong>Solve Dependencies</strong></p>
-<p>Produces <code>esyi.lock.json</code> out of <code>package.json</code>.
-This step is optional as <code>esyi.lock.json</code> can be already present in a fresh
-checkout.</p></li>
+<p>Produces <code>esy.lock</code> solutuon lock out of <code>package.json</code>.  This step is
+optional as <code>esy.lock</code> can be already present in a fresh checkout.</p></li>
 <li><p><strong>Fetch Dependencies</strong></p>
-<p>Ensures all packages mentioned in <code>esyi.lock.json</code> is in the <a href="#global-installation-cache">Global
+<p>Ensures all packages mentioned in <code>esy.lock</code> is in the <a href="#global-installation-cache">Global
 Installation Cache</a>.</p></li>
-<li><p><strong>Install Dependencies</strong></p>
-<p>Populates the sandbox's <code>node_modules</code> directory.</p></li>
 <li><p><strong>Crawl Package Graph</strong></p>
-<p>Crawls the sandbox's <code>node_modules</code> directory and constructs the <code>Package.t</code>
-graph.</p></li>
+<p>Crawls the sandbox's lockfile and linked packages and read them into
+<code>BuildManifest.t</code>.</p></li>
 <li><p><strong>Produce Task Graph</strong></p>
-<p>Folds over the <code>Package.t</code> graph and produces the <code>Task.t</code> graph.</p></li>
+<p>Folds over the <code>BuildManifest.t</code> and produces the <code>Plan.Task.t</code> structures.</p></li>
 <li><p><strong>Build Task Graph</strong></p>
-<p>Executes <code>Task.t</code> graph which uses <code>esy-build-package</code> to build each <code>Task.t</code>.</p></li>
+<p>For each <code>Plan.Task.t</code> exeute build commands in the corresponding environment
+using <code>esy-build-package</code> command.</p></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="solve-dependencies"></a><a href="#solve-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solve Dependencies</h3>
 <p>This step produces a <a href="/docs/en/concepts.html#solution">solution</a> out of dependency
@@ -64,10 +62,10 @@ other sources (remote URLs, local paths and various git repositories hostings).<
 <p>Constructed package universe is then encoded as <a href="/docs/en/concepts.html#CUDF">CUDF</a> and
 then is being fed to a CUDF solver (provided by the <code>esy-solve-cudf</code> npm package
 which uses <a href="http://www.i3s.unice.fr/~cpjm/misc/mccs.html">mccs</a> solver underneath).</p>
-<p>The result of the solver is then decoded and serialized on disk as
-<code>esyi.lock.json</code> file. It is advised to commit such file to a project's VCS as
-it captures the current state of the project's dependencies thus allowing to
-reproduce the exact same environment on other hosts at other points in time.</p>
+<p>The result of the solver is then decoded and serialized on disk as <code>esy.lock</code>
+directory. It is advised to commit such file to a project's VCS as it captures
+the current state of the project's dependencies thus allowing to reproduce the
+exact same environment on other hosts at other points in time.</p>
 <p>Modules of interest:</p>
 <ul>
 <li><code>esyi/Universe</code></li>
@@ -92,21 +90,11 @@ mentioned in the solution are fetched and cached in the <a href="#global-install
 <p>Modules of interest:</p>
 <ul>
 <li><code>esyi/Fetch</code></li>
-<li><code>esyi/FetchStorage</code></li>
 <li><code>esyi/Solution</code></li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" id="install-dependencies"></a><a href="#install-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Dependencies</h3>
-<p>This step consumes a <a href="/docs/en/concepts.html#solution">solution</a> produced by the
-<a href="#solve-dependencies">Solve Dependencies</a> step and populates with sandbox's
-<code>node_modules</code> directory by unpacking <code>*.tgz</code> from the <a href="#global-installation-cache">Global Installation
-Caches</a>.</p>
-<p>Modules of interest:</p>
-<ul>
-<li><code>esyi/Fetch</code></li>
-</ul>
 <h3><a class="anchor" aria-hidden="true" id="crawl-package-graph"></a><a href="#crawl-package-graph" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Crawl Package Graph</h3>
-<p>This step crawls the sandbox's <code>node_modules</code> directory to construct the
-<code>Package.t</code> graph.</p>
+<p>This step crawls the sandbox's lockfile and linked packages and read them into
+<code>BuildManifest.t</code>.</p>
 <p>This graph has package metadata at nodes and edges are instances of dependency
 relations between packages. The dependency relation is defined by the following
 fields in a package's manifest:</p>
@@ -121,22 +109,22 @@ being discouraged now.</li>
 </ul>
 <p>Modules of interest:</p>
 <ul>
-<li><code>esy/Package</code></li>
-<li><code>esy/Sandbox</code></li>
+<li><code>esy/Plan</code></li>
+<li><code>esy/BuildManifest</code></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="produce-task-graph"></a><a href="#produce-task-graph" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Produce Task Graph</h3>
-<p>This step consumes a <code>Package.t</code> graph and produces a <code>Task.t</code> graph.</p>
-<p>The resulted graph is topologically isomorphic to the original <code>Package.t</code> graph
-but contains much more information about the build process for each of the
-packages in a sandbox:</p>
+<p>This step consumes a <code>BuildManifest.t</code> structures and produces a <code>Plan.Task.t</code>
+structures.</p>
+<p>The resulted graph is topologically isomorphic to the original
+<code>Solution.Package.t</code> graph but contains much more information about the build
+process for each of the packages in a sandbox:</p>
 <ul>
 <li>A list of ready to execute commands</li>
 <li>An environment which is needed to execute build commands</li>
 </ul>
 <p>Modules of interest:</p>
 <ul>
-<li><code>esy/Package</code></li>
-<li><code>esy/Task</code></li>
+<li><code>esy/Plan</code></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="build-task-graph"></a><a href="#build-task-graph" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Task Graph</h3>
 <p>After <code>Task.t</code> is constructed it's time to build it.</p>
@@ -156,20 +144,15 @@ executable.</p>
 problem for hosts with little free disk space available.</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="global-installation-cache"></a><a href="#global-installation-cache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Global Installation Cache</h3>
-<p>This cache stores source tarballs of concrete package versions.</p>
+<p>This cache stores sources of concrete package versions.</p>
 <h4><a class="anchor" aria-hidden="true" id="location-structure"></a><a href="#location-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Location &amp; Structure</h4>
 <p>The default location for the cache is <code>~/.esy/esyi/tarballs</code> and can be
 indirectly controlled by the <code>--cache-path</code> option of <code>esyi</code> executable.</p>
-<pre><code class="hljs css language-bash">% tree ~/.esy/esyi/tarballs
-├── @esy-ocaml
-│   ├── esy-installer__0.0.0.tgz
-│   └── substs__0.0.1.tgz
-├── @opam
-│   ├── base-bytes__opam:base__1cf5b511.tgz
+<pre><code class="hljs css language-bash">% tree ~/.esy/<span class="hljs-built_in">source</span>/i
+├── esy-installer__0.0.0.tgz
+└── substs__0.0.1.tgz
 ...
 </code></pre>
-<p>Tarballs are stored in a state which allows them to be extracted directly
-inside the <code>node_modules</code> directory of a project's sandbox.</p>
 <h4><a class="anchor" aria-hidden="true" id="cache-key"></a><a href="#cache-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cache Key</h4>
 <p>The cache key used for the cache consists of:</p>
 <ul>
@@ -233,14 +216,14 @@ package manifest</li>
 <h3><a class="anchor" aria-hidden="true" id="local-build-store"></a><a href="#local-build-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Local Build Store</h3>
 <p>Local Build Store follows exactly the same layout and cache key as the Global
 Build Store but it is local to a sandbox and located at
-<code>&lt;sandboxPath&gt;/node_modules/.cache/_esy/store</code> path.</p>
+<code>&lt;sandboxPath&gt;/_esy/deafult/store</code> path.</p>
 <p>It is used to store artifacts of packages which don't have a stable build
 identity (unreleased software which changes often and doesn't warrant sroting
 its artifacts in a Global Build Store).</p>
 <h3><a class="anchor" aria-hidden="true" id="local-sandbox-cache"></a><a href="#local-sandbox-cache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Local Sandbox Cache</h3>
 <p>Local Sandbox Cache stores a computed package and build task graph. It is
-located at <code>&lt;sandboxPath&gt;/node_modules/.cache/_esy/sandbox-&lt;hash&gt;</code> where
-<code>&lt;hash&gt;</code> part is a hash of:</p>
+located at <code>&lt;sandboxPath&gt;/_esy/default/cache/sandbox-&lt;hash&gt;</code> where <code>&lt;hash&gt;</code> part
+is a hash of:</p>
 <ul>
 <li>Store Path</li>
 <li>Sandbox Path</li>
@@ -253,7 +236,7 @@ located at <code>&lt;sandboxPath&gt;/node_modules/.cache/_esy/sandbox-&lt;hash&g
 <code>SandboxInfo.t</code> layout than the one with which the cache was produced with
 usually results in a Segmentation Fault.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/offline.html"><span class="arrow-prev">← </span><span>Offline Builds</span></a><a class="docs-next button" href="/docs/en/development.html"><span>Development</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#pipeline">Pipeline</a><ul class="toc-headings"><li><a href="#solve-dependencies">Solve Dependencies</a></li><li><a href="#fetch-dependencies">Fetch Dependencies</a></li><li><a href="#install-dependencies">Install Dependencies</a></li><li><a href="#crawl-package-graph">Crawl Package Graph</a></li><li><a href="#produce-task-graph">Produce Task Graph</a></li><li><a href="#build-task-graph">Build Task Graph</a></li></ul></li><li><a href="#caches">Caches</a><ul class="toc-headings"><li><a href="#global-installation-cache">Global Installation Cache</a></li><li><a href="#global-build-store">Global Build Store</a></li><li><a href="#local-build-store">Local Build Store</a></li><li><a href="#local-sandbox-cache">Local Sandbox Cache</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/offline.html"><span class="arrow-prev">← </span><span>Offline Builds</span></a><a class="docs-next button" href="/docs/en/development.html"><span>Development</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#pipeline">Pipeline</a><ul class="toc-headings"><li><a href="#solve-dependencies">Solve Dependencies</a></li><li><a href="#fetch-dependencies">Fetch Dependencies</a></li><li><a href="#crawl-package-graph">Crawl Package Graph</a></li><li><a href="#produce-task-graph">Produce Task Graph</a></li><li><a href="#build-task-graph">Build Task Graph</a></li></ul></li><li><a href="#caches">Caches</a><ul class="toc-headings"><li><a href="#global-installation-cache">Global Installation Cache</a></li><li><a href="#global-build-store">Global Build Store</a></li><li><a href="#local-build-store">Local Build Store</a></li><li><a href="#local-sandbox-cache">Local Sandbox Cache</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
