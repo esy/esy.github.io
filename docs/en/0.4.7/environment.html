@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Environment · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;For each project esy manages:&lt;/p&gt;
+"/><meta name="docsearch:version" content="0.4.7"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Environment · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;For each project esy manages:&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><a href="/en/versions.html"><h3>0.4.7</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/0.4.7/getting-started.html" target="_self">Getting started</a></li><li class="siteNavGroupActive"><a href="/docs/en/0.4.7/what-why.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/0.4.7/community.html" target="_self">Community</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Reference</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/using-repo-sources-workflow.html">Using Unreleased Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/linking-workflow.html">Linking Packages in Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/concepts.html">Concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/configuration.html">Project Configuration</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/0.4.7/environment.html">Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/commands.html">Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/low-level-commands.html">Low Level Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/esy-configuration.html">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/node-compatibility.html">Node/npm Compatibility</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Community</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/community.html">Community</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/multiple-sandboxes.html">Multiple Project Sandboxes</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/npm-release.html">Building npm Releases</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/opam-workflow.html">Workflow for opam Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/c-workflow.html">Workflow for C/C++ Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/offline.html">Offline Builds</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internals</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/how-it-works.html">How esy works</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.4.7/development.html">Development</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/environment.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Environment</h1></header><article><div><span><p>For each project esy manages:</p>
+<ul>
+<li><p><strong>build environment</strong> — an environment which is used to build the project</p></li>
+<li><p><strong>command environment</strong> — an environment which is used running text editors/IDE
+and for general testing of the built artfiacts</p></li>
+<li><p><strong>test environment</strong> — an environment which includes the current package's
+installation directories and expored environment. This is useful if you need
+an environment in which the current application appears installed.</p></li>
+</ul>
+<p>Each environment consists of two parts:</p>
+<ol>
+<li><p>Base environment provided by esy.</p></li>
+<li><p>Environment exported from the sandbox dependencies. There are several types
+of dependencies esy can understand:</p>
+<ol>
+<li><p><strong>Regular dependencies</strong> are dependencies which are needed at runtime.
+They are listed in <code>&quot;dependencies&quot;</code> key of the <code>package.json</code>.</p></li>
+<li><p><strong>Development time dependencies</strong> are dependencies which are needed only
+during development. They are listed in <code>&quot;devDependencies&quot;</code> key of the
+<code>package.json</code>. Examples: <code>@opam/merlin</code>, <code>@opam/ocamlformat</code> and so on.</p></li>
+<li><p><strong>Build time dependencies</strong> (NOT IMPLEMENTED) are dependencies which are
+only needed during the build of the project. Support for those is <strong>not
+implemented</strong> currently. The workaround is to declare such dependencies as
+regular dependencies for the time being.</p></li>
+</ol></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="build-environment"></a><a href="#build-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build Environment</h2>
+<p>The following environment is provided by esy:</p>
+<ul>
+<li><p><code>$SHELL</code> is set to <code>env -i /bin/bash --norc --noprofile</code> so each build is
+executed in an environment clear from user customizations usually found in
+<code>.profile</code> or other configuration files.</p></li>
+<li><p><code>$PATH</code> contains all regular dependencies' <code>bin/</code> directories.</p></li>
+<li><p><code>$MAN_PATH</code> contains all regular dependencies' <code>man/</code> directories.</p></li>
+<li><p><code>$OCAMLPATH</code> contains all regular dependencies' <code>lib/</code> directories.</p></li>
+</ul>
+<p>Each regular dependency of the project can also contribute to the environment
+through <code>&quot;esy.exportedEnv&quot;</code> key in <code>package.json</code>. See <a href="/docs/en/0.4.7/configuration.html">Project
+Configuration</a> for details.</p>
+<h2><a class="anchor" aria-hidden="true" id="command-environment"></a><a href="#command-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Command Environment</h2>
+<p>The following environment is provided by esy:</p>
+<ul>
+<li><p><code>$PATH</code> contains all regular <strong>and development</strong> time dependencies' <code>bin/</code>
+directories.</p></li>
+<li><p><code>$MAN_PATH</code> contains all regular <strong>and development</strong> dependencies' <code>man/</code>
+directories.</p></li>
+<li><p><code>$OCAMLPATH</code> contains all regular <strong>and development</strong> dependencies' <code>lib/</code>
+directories.</p></li>
+</ul>
+<p>Each regular <strong>and development</strong> dependency of the project can also contribute to the
+environment through <code>&quot;esy.exportedEnv&quot;</code> key in <code>package.json</code>. See <a href="/docs/en/0.4.7/configuration.html">Project
+Configuration</a> for details.</p>
+<h2><a class="anchor" aria-hidden="true" id="test-environment"></a><a href="#test-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test Environment</h2>
+<p>The following environment is provided by esy:</p>
+<ul>
+<li><p><code>$PATH</code> contains all regular time dependencies' <code>bin/</code>
+directories <strong>and project's own</strong> <code>bin/</code> directory.</p></li>
+<li><p><code>$MAN_PATH</code> contains all regular dependencies' <code>man/</code>
+directories <strong>and project's own</strong> <code>man/</code> directory.</p></li>
+<li><p><code>$OCAMLPATH</code> contains all regular dependencies' <code>lib/</code>
+directories  <strong>and project's own</strong> <code>lib/</code> directory.</p></li>
+</ul>
+<p>Each regular dependency of the project <strong>and the project itself</strong> can also
+contribute to the environment through <code>&quot;esy.exportedEnv&quot;</code> key in <code>package.json</code>.
+See <a href="/docs/en/0.4.7/configuration.html">Project Configuration</a> for details.</p>
+<h2><a class="anchor" aria-hidden="true" id="variable-substitution-syntax"></a><a href="#variable-substitution-syntax" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable substitution syntax</h2>
+<p>Your <code>package.json</code>'s <code>esy</code> configuration can include &quot;interpolation&quot; regions
+written as <code>#{ }</code>, where <code>esy</code> &quot;variables&quot; can be used which will automatically
+be substituted with their corresponding values.</p>
+<p>For example, if you have a package named <code>@company/widget-factory</code> at version
+<code>1.2.0</code>, then its <code>esy.build</code> field in <code>package.json</code> could be specified as:</p>
+<pre><code class="hljs css language-json">   "build": "make #{@company/widget-factory.version}",
+</code></pre>
+<p>and <code>esy</code> will ensure that the build command is interpreted as <code>&quot;make 1.2.0&quot;</code>.
+In this example the interpolation region includes just one <code>esy</code> variable
+<code>@company/widget-factory.version</code> - which is substituted with the version number
+for the <code>@company/widget-factory</code> package.</p>
+<p>Package specific variables are prefixed with their package name, followed
+by an <code>esy</code> &quot;property&quot; of that package such as <code>.version</code> or <code>.lib</code>.</p>
+<p><code>esy</code> also provides some other built in variables which help with path and environment
+manipulation in a cross platform manner.</p>
+<p><strong>Supported Variable Substitutions:</strong></p>
+<p>Those variables refer to the values defined for the current package:</p>
+<ul>
+<li><code>self.bin</code></li>
+<li><code>self.sbin</code></li>
+<li><code>self.lib</code></li>
+<li><code>self.man</code></li>
+<li><code>self.doc</code></li>
+<li><code>self.stublibs</code></li>
+<li><code>self.toplevel</code></li>
+<li><code>self.share</code></li>
+<li><code>self.etc</code></li>
+<li><code>self.install</code></li>
+<li><code>self.target_dir</code></li>
+<li><code>self.root</code></li>
+<li><code>self.name</code></li>
+<li><code>self.version</code></li>
+<li><code>self.depends</code></li>
+</ul>
+<p>You can refer to the values defined for other packages by using the respective
+<code>package-name</code> prefix:</p>
+<ul>
+<li><code>package-name.bin</code></li>
+<li><code>package-name.sbin</code></li>
+<li><code>package-name.lib</code></li>
+<li><code>package-name.man</code></li>
+<li><code>package-name.doc</code></li>
+<li><code>package-name.stublibs</code></li>
+<li><code>package-name.toplevel</code></li>
+<li><code>package-name.share</code></li>
+<li><code>package-name.etc</code></li>
+<li><code>package-name.install</code></li>
+<li><code>package-name.target_dir</code></li>
+<li><code>package-name.root</code></li>
+<li><code>package-name.name</code></li>
+<li><code>package-name.version</code></li>
+<li><code>package-name.depends</code></li>
+</ul>
+<p>The following constructs are also allowed inside &quot;interpolation&quot; regions:</p>
+<ul>
+<li><code>$PATH</code>, <code>$cur__bin</code> : environment variable references</li>
+<li><code>'hello'</code>, <code>'lib'</code> : string literals</li>
+<li><code>/</code> : path separator (substituted with the platform's path separator)</li>
+<li><code>:</code> : env var value separator (substituted with platform's env var separator <code>:</code>/<code>;</code>).</li>
+</ul>
+<p>You can join many of these <code>esy</code> variables together inside of an interpolation region
+by separating the variables with spaces. The entire interpolation region will be substituted
+with the concatenation of the space separated <code>esy</code> variables.</p>
+<p>White space separating the variables are not included in the concatenation, If
+you need to insert a literal white space, use <code>' '</code> string literal.</p>
+<p>Examples:</p>
+<ul>
+<li><p><code>&quot;#{pkg.bin : $PATH}&quot;</code></p></li>
+<li><p><code>&quot;#{pkg.lib / 'stublibs' : $CAML_LD_LIBRARY_PATH}&quot;</code></p></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/0.4.7/configuration.html"><span class="arrow-prev">← </span><span>Project Configuration</span></a><a class="docs-next button" href="/docs/en/0.4.7/commands.html"><span>Commands</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#build-environment">Build Environment</a></li><li><a href="#command-environment">Command Environment</a></li><li><a href="#test-environment">Test Environment</a></li><li><a href="#variable-substitution-syntax">Variable substitution syntax</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'a7cfb79b829d08c14bd06ae075f9baac',
+                indexName: 'esy',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -47,7 +47,7 @@ requiring &quot;switches&quot;. Opam packages are still accessable, and you can 
 your packages to opam repository.</p>
 <ul>
 <li><p>Manages OCaml compilers and dependencies on a per project basis.</p></li>
-<li><p>Sandboxes project environment by exposing only those packages which are
+<li><p>Isolates each package environment by exposing only those packages which are
 defined as dependencies.</p></li>
 <li><p>Fast parallel builds which are agressively cached (even across different
 projects).</p></li>
@@ -60,7 +60,7 @@ projects).</p></li>
 <li><p>Clean environment builds for reproducibility.</p></li>
 <li><p>Global build cache automatically shared across all projects — initializing new
 projects is often cheap.</p></li>
-<li><p>File system sandboxing to prevent builds from mutating locations they don't
+<li><p>File system checks to prevent builds from mutating locations they don't
 own.</p></li>
 <li><p>Solves environment variable pain. Native toolchains rely heavily on environment
 variables, and <code>esy</code> makes them behave predictably, and usually even gets them
