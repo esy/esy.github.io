@@ -88,12 +88,13 @@ allows <code>node</code>'s module resolution to work even if dependencies are no
 <code>node_modules</code>. That makes <code>esy</code> JavaScript dependencies more like native
 dependencies — they don't have to be copied into <code>node_modules</code>.  Now,
 even if your project has JavaScript dependencies, installations with a warm
-cache are fast. Like, really fast:</p>
+cache are fast. Like, really fast (timings are for
+<a href="https://github.com/esy-ocaml/hello-reason">esy-ocaml/hello-reason</a> project):</p>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> time esy install</span>
 info install 0.4.7
 info fetching: done
 info installing: done
-esy install  0.24s user 0.16s system 120% cpu 0.335 total
+esy install  0.08s user 0.06s system 93% cpu 0.142 total
 </code></pre>
 <p>This also means that esy is now compatible with the most important parts of the
 JS ecosystem: webpack, jest, flow, react-scripts, rollup, prettier and others
