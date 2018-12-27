@@ -3,6 +3,7 @@
 <url> <loc>https://esy.github.io/help-with-translations.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/en/help-with-translations.html" /> </url>
 <url> <loc>https://esy.github.io/index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/en/index.html" /> </url>
 <url> <loc>https://esy.github.io/versions.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/en/versions.html" /> </url>
+<url> <loc>https://esy.github.io/blog/2018/12/24/0.4.x.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://esy.github.io/docs/en/next/c-workflow.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/docs/en/next/c-workflow.html" /> </url>
 <url> <loc>https://esy.github.io/docs/en/next/commands.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/docs/en/next/commands.html" /> </url>
 <url> <loc>https://esy.github.io/docs/en/next/community.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://esy.github.io/docs/en/next/community.html" /> </url>

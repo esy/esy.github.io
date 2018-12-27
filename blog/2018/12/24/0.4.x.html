@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>What&#x27;s new in esy 0.4.x · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This is the first public blog post on the esy dev blog.  We&#x27;ve been writing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="What&#x27;s new in esy 0.4.x · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/blog/2018/12/24/0.4.x.html"/><meta property="og:description" content="This is the first public blog post on the esy dev blog.  We&#x27;ve been writing"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="alternate" type="application/atom+xml" href="https://esy.github.io/blog/atom.xml" title="esy Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://esy.github.io/blog/feed.xml" title="esy Blog RSS Feed"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><a href="/en/versions.html"><h3>0.4.9</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/en/getting-started.html" target="_self">Getting started</a></li><li class=""><a href="/docs/en/what-why.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/blog/2018/12/24/0.4.x.html">What&#x27;s new in esy 0.4.x</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/12/24/0.4.x.html">What&#x27;s new in esy 0.4.x</a></h1><p class="post-meta">December 24, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://twitter.com/andreypopp" target="_blank" rel="noreferrer noopener">Andrey Popp</a></p></div></header><div><span><p>This is the first public blog post on the esy dev blog.  We've been writing
+lots and lots of code to make esy work well, and until now we haven't
+communicated much about esy.</p>
+<!--truncate-->
+<h2><a class="anchor" aria-hidden="true" id="what-is-esy"></a><a href="#what-is-esy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What Is Esy</h2>
+<p>If you've stumbled upon this and don't know what esy is: esy is a
+&quot;package.json&quot;-like workflow with first class support for native development.</p>
+<p>Esy started as part of the <a href="https://reasonml.github.io">reason</a> effort with the goal of
+implementing isolated and fast native Reason/OCaml project builds that were
+familiar to JavaScript developers. Esy itself is compiled natively,
+and can manage packages for most compiled languages (we use it to
+package/distribute C/C++ packages in addition to Reason and OCaml).</p>
+<p>Esy should be familiar to anyone with experience with Yarn, or npm (just run
+<code>esy</code> inside a directory with a <code>package.json</code>).</p>
+<ul>
+<li><p>esy provides a unified package management workflow that can install/build
+packages from <a href="https://opam.ocaml.org/">opam</a> as well as native packages published to <a href="https://npmjs.com/">npm</a></p></li>
+<li><p>esy is not tied to any particular choice of a language/platform. Though we are
+focusing on native Reason/OCaml first.</p></li>
+<li><p>esy is build-system agnostic: you don't have to port a project
+to some specific build system to make it work with esy.</p></li>
+<li><p>esy tries to provide &quot;hermetic&quot; builds so that builds of packages are
+unaffected by the system software installed at global paths: if it works on my
+machine then it should work on yours.</p></li>
+<li><p>esy caches built packages across projects: with a warm cache, new projects
+are cheap to initialise and build.</p></li>
+</ul>
+<p>This is not an exhaustive list of esy features but we think these are the most
+important points.
+Read more about esy's motivations in the <a href="https://esy.sh/docs/en/what-why.html">esy docs</a></p>
+<h2><a class="anchor" aria-hidden="true" id="esy-04x"></a><a href="#esy-04x" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>esy 0.4.x</h2>
+<p>We recently promoted the 0.4.9 release of esy as <code>latest</code>. That means if you
+execute:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> npm install -g esy</span>
+</code></pre>
+<p>You'll get <code>esy@0.4.9</code> which is packed with new features. Below we discuss some
+of those.</p>
+<h3><a class="anchor" aria-hidden="true" id="plug-n-play-installations"></a><a href="#plug-n-play-installations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plug'n'play Installations</h3>
+<p><strong>TL;DR:</strong> esy won't populate <code>node_modules</code> directory with package sources
+anymore, and esy now supports installing Plug'n'play(pnp) JavaScript
+dependencies.</p>
+<p>In its first iteration, <code>esy</code> initially installed all dependency sources into
+<code>node_modules.</code> The benefit of this is that approach is that it was compatible
+with popular JS tooling that relied on <code>node_modules</code> directory. The downside
+was that for native packages (the main focus of esy) copying sources over from
+cache to a <code>node_modules</code> directory was unnecessary and a waste of time and
+disk space.</p>
+<p>Furthermore, esy already builds projects purely out-of-source to ensure
+reproducibility - installing into <code>node_modules</code> was merely done to adhere to
+JavaScript's conventions, and it actually risked compromising reproducibility.</p>
+<p>So how could esy achieve the best of both worlds (JS runtime compatibility) and
+(maintaining reproducible package builds)?</p>
+<p>Fortunately, Yarn team figured out how to ditch <code>node_modules</code> for JS packages.
+They designed a new convention called <a href="https://github.com/arcanis/rfcs/blob/6fc13d52f43eff45b7b46b707f3115cc63d0ea5f/accepted/0000-plug-an-play.md">Plug'n'play installations</a> (&quot;pnp&quot;).
+Pnp is a way to run JS packages directly from the global package cache without
+copying them to <code>node_modules</code>, while having Node, Webpack and other runtimes
+to be able to resolve code from there.</p>
+<p>As of 0.4.x, esy now places a copy of Yarn's <code>pnp.js</code> runtime at installation
+time into your project when installing JavaScript dependencies. That <code>pnp.js</code>
+allows <code>node</code>'s module resolution to work even if dependencies are not in
+<code>node_modules</code>. That makes <code>esy</code> JavaScript dependencies more like native
+dependencies — they don't have to be copied into <code>node_modules</code>.  Now,
+even if your project has JavaScript dependencies, installations with a warm
+cache are fast. Like, really fast:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> time esy install</span>
+info install 0.4.7
+info fetching: done
+info installing: done
+esy install  0.24s user 0.16s system 120% cpu 0.335 total
+</code></pre>
+<p>This also means that esy is now compatible with the most important parts of the
+JS ecosystem: webpack, jest, flow, react-scripts, rollup, prettier and others
+which have all been made pnp compatible thanks to the efforts of Yarn. A few
+npm packages have still not made themselves pnp compatible — you should
+file issues on those projects requesting that they support pnp, so that they
+can be used with Yarn pnp, esy, and any other package manager that adopts
+the pnp standard.</p>
+<p>The workflow for working with JS (non-native) packages with esy looks like this:</p>
+<ul>
+<li><p>After installing dependencies as usual, execute pnp-enabled NodeJs
+interpreter:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> esy node</span>
+</code></pre></li>
+<li><p>Execute npm binaries installed with packages like webpack, flow, jest and
+similar:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> esy webpack</span>
+<span class="hljs-meta">%</span><span class="bash"> esy flow</span>
+<span class="hljs-meta">%</span><span class="bash"> esy jest</span>
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="alpha-preview-of-windows-support"></a><a href="#alpha-preview-of-windows-support" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alpha preview of Windows support</h3>
+<p>Another huge feature which shipped in 0.4.x is preliminary native Windows
+support! Install and use <code>esy</code> directly from native Windows command prompt
+without needing to install anything else on your system.
+Yes — it produces pure native Windows binaries that run on any Windows
+machine.</p>
+<p>Thanks to heroic effots of <a href="https://github.com/bryphe">Bryan Phelps</a> and foundational work by the
+OCaml community developing Reason/OCaml, native project management on Windows
+are now as easy as on macOS/Linux:</p>
+<pre><code class="hljs css language-shell">C:\Users\Andrey&gt; git clone https://github.com/facebook/reason
+C:\Users\Andrey&gt; cd reason
+C:\Users\Andrey&gt; esy
+info install 0.4.9
+info fetching: done
+info installing: done
+</code></pre>
+<p>There is more to say about how Windows support is implemented in esy and we
+will make sure there's a dedicated post on this in the near future where we
+will describe some of the foundational compiler and tooling work for Windows
+that the OCaml community has invested in.</p>
+<p>Note though that Windows support is still considered alpha — there are
+rough edges which needs to be fixed. If you are a developer who works on Windows
+and want to help — jump into <a href="https://github.com/esy/esy/issues?q=is%3Aissue+is%3Aopen+label%3Awindows">esy/esy issues labelled
+&quot;Windows&quot;</a> and help us! The good thing is that we have CI running on
+Windows too (a big thank you to <a href="https://github.com/ulrikstrid">Ulrik Strid</a> for making sure a large
+part of our test suite can run on Windows).</p>
+<h3><a class="anchor" aria-hidden="true" id="other-04x-goodies"></a><a href="#other-04x-goodies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other 0.4.x goodies</h3>
+<p>There are lots and lots of changes in the 0.4.x release line, which could have
+arguably been versioned <code>0.5.x</code>. In the future, we are aiming for more
+incremental releases.</p>
+<p>There are too many new features to list, but to highlight a couple of entries
+in the <a href="https://github.com/esy/esy/blob/496923fce0412f1e3e81ebfa8797a4e09f28ecd4/CHANGELOG.md#048--latest">CHANGELOG</a>:</p>
+<ul>
+<li><p>Improved workflow for linked packages: working on multiple packages in
+development is now more efficient and esy allows more flexibility in how you
+organize your project.</p></li>
+<li><p>Support for multiple isolated environments constructed on the fly from
+package configs. Now you may have multiple <code>.json</code> configurations in your
+project root (similar to a monorepo) and install/build them in total
+isolation. If you have a <code>package.dev.json</code> file you can use it explicitly:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> esy @package.dev.json build</span>
+</code></pre></li>
+<li><p>Flexible package override mechanism which allows turning any source code
+distribution into an esy package, bringing it into your project with all the
+benefits of the esy workflow: cached builds, isolated environments, etc.
+This lets you turn any git hash or URL into an esy package without forking
+it, even if that package doesn't have a <code>package.json</code> file.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"resolutions"</span>: {
+    <span class="hljs-attr">"pkg-config"</span>: {
+      <span class="hljs-attr">"source"</span>: <span class="hljs-string">"https://..."</span>,
+      <span class="hljs-attr">"override"</span>: {
+        <span class="hljs-attr">"build"</span>: [
+          <span class="hljs-string">"./configure --prefix #{self.install}"</span>,
+          <span class="hljs-string">"make"</span>
+        ],
+        <span class="hljs-attr">"install"</span>: [
+          <span class="hljs-string">"make install"</span>
+        ]
+      }
+    }
+  }
+</code></pre></li>
+<li><p>Numerous improvements to esy's user interface: new commands (<code>esy show</code> and
+<code>esy status</code>), faster <code>esy x ...</code> command invocations, a new set of low level
+plumbing commands for &quot;scriptable&quot; esy workflows, ...</p></li>
+<li><p>New <code>esy.lock</code> format which is easier to review on updates.</p></li>
+<li><p>Bug fixes, bug fixes, bug fixes, ...</p></li>
+</ul>
+<p>Some of these features are not documented yet properly but we'll make sure we do
+this and then post updates on this blog.</p>
+<p>Stay tuned!</p>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog">Recent Posts</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#what-is-esy">What Is Esy</a></li><li><a href="#esy-04x">esy 0.4.x</a><ul class="toc-headings"><li><a href="#plug-n-play-installations">Plug'n'play Installations</a></li><li><a href="#alpha-preview-of-windows-support">Alpha preview of Windows support</a></li><li><a href="#other-04x-goodies">Other 0.4.x goodies</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'a7cfb79b829d08c14bd06ae075f9baac',
+                indexName: 'esy',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
