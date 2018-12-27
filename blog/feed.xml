@@ -4,7 +4,7 @@
         <title>esy Blog</title>
         <link>https://esy.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest esy news and events.</description>
-        <lastBuildDate>Mon, 24 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 27 Dec 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -14,9 +14,9 @@
         </image>
         <item>
             <title><![CDATA[What's new in esy 0.4.x]]></title>
-            <link>https://esy.github.io/blog/2018/12/24/0.4.x.html</link>
-            <guid>https://esy.github.io/blog/2018/12/24/0.4.x.html</guid>
-            <pubDate>Mon, 24 Dec 2018 06:00:00 GMT</pubDate>
+            <link>https://esy.github.io/blog/2018/12/27/0.4.x.html</link>
+            <guid>https://esy.github.io/blog/2018/12/27/0.4.x.html</guid>
+            <pubDate>Thu, 27 Dec 2018 06:00:00 GMT</pubDate>
             <description><![CDATA[<p>This is the first public blog post on the esy dev blog.  We've been writing
 lots and lots of code to make esy work well, and until now we haven't
 communicated much about esy.</p>

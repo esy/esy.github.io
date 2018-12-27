@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://esy.github.io/blog</id>
     <title>esy Blog</title>
-    <updated>2018-12-24T06:00:00Z</updated>
+    <updated>2018-12-27T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://esy.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest esy news and events.</subtitle>
     <logo>https://esy.github.io/img/block-white.svg</logo>
     <entry>
         <title type="html"><![CDATA[What's new in esy 0.4.x]]></title>
-        <id>https://esy.github.io/blog/2018/12/24/0.4.x.html</id>
-        <link href="https://esy.github.io/blog/2018/12/24/0.4.x.html">
+        <id>https://esy.github.io/blog/2018/12/27/0.4.x.html</id>
+        <link href="https://esy.github.io/blog/2018/12/27/0.4.x.html">
         </link>
-        <updated>2018-12-24T06:00:00Z</updated>
+        <updated>2018-12-27T06:00:00Z</updated>
         <summary type="html"><![CDATA[<p>This is the first public blog post on the esy dev blog.  We've been writing
 lots and lots of code to make esy work well, and until now we haven't
 communicated much about esy.</p>
