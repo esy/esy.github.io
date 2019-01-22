@@ -62,19 +62,27 @@ command.</p>
 declare build commands.</p>
 <h3><a class="anchor" aria-hidden="true" id="esybuilddev"></a><a href="#esybuilddev" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.buildDev</code></h3>
 <p>Describe how your package's default targets should be built when package is
-being developed.</p>
-<p>For example, for a <a href="https://dune.readthedocs.io/">dune</a> based package you'd want to call <code>dune build</code>
-command.</p>
+being developed. This is only used for the root package of an esy project.</p>
+<p>The main difference with <code>esy.build</code> is that commands declared in <code>esy.buildDev</code>
+have access to <code>&quot;devDependencies&quot;</code>.</p>
+<p>For example, for a <a href="https://dune.readthedocs.io/">dune</a> based package you'd want
+to call <code>dune build</code> command.</p>
 <pre><code class="hljs">{
-  <span class="hljs-attr">"esy"</span>: {
-    <span class="hljs-attr">"buildDev"</span>: [
-      <span class="hljs-string">"dune build --root . --only-packages #{self.name}"</span>,
+  <span class="hljs-string">"esy"</span>: {
+    <span class="hljs-string">"buildDev"</span>: [
+      <span class="hljs-string">"refmterr dune build --root . --only-packages #{self.name}"</span>,
     ]
+  },
+  <span class="hljs-string">"dependencies"</span>: {
+    <span class="hljs-string">"refmterr"</span>: <span class="hljs-string">"*"</span>,
+    ...
   }
 }
 </code></pre>
-<p><a href="/docs/en/next/environment.html#variable-substitution-syntax">esy variable substitution syntax</a> can be used to
-declare build commands.</p>
+<p>Note that we use <code>refmterr</code> command which is declared in <code>&quot;devDependencies&quot;</code>
+section.</p>
+<p><a href="/docs/en/next/environment.html#variable-substitution-syntax">esy variable substitution syntax</a>
+can be used to declare build commands.</p>
 <p>If no <code>esy.buildDev</code> is defined then <code>esy.build</code> is used instead.</p>
 <h3><a class="anchor" aria-hidden="true" id="esyinstall-optional"></a><a href="#esyinstall-optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>esy.install</code> (optional)</h3>
 <p>By default <code>esy</code> will look for a single <code>*.install</code> file in the project root and
