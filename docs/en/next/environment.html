@@ -111,6 +111,14 @@ manipulation in a cross platform manner.</p>
 <p><strong>Supported Variable Substitutions:</strong></p>
 <p>Those variables refer to the values defined for the current package:</p>
 <ul>
+<li><code>self.name</code> represents the name of the package</li>
+<li><code>self.version</code> represents the version of the package (as defined in its
+<code>package.json</code>)</li>
+<li><code>self.root</code> is the package source root</li>
+<li><code>self.target_dir</code> is the package build directory</li>
+<li><code>self.install</code> is the package installation directory, there are also
+variables defined which refer to common subdirectories of <code>self.install</code>:
+<ul>
 <li><code>self.bin</code></li>
 <li><code>self.sbin</code></li>
 <li><code>self.lib</code></li>
@@ -120,15 +128,18 @@ manipulation in a cross platform manner.</p>
 <li><code>self.toplevel</code></li>
 <li><code>self.share</code></li>
 <li><code>self.etc</code></li>
-<li><code>self.install</code></li>
-<li><code>self.target_dir</code></li>
-<li><code>self.root</code></li>
-<li><code>self.name</code></li>
-<li><code>self.version</code></li>
-<li><code>self.depends</code></li>
+</ul></li>
 </ul>
-<p>You can refer to the values defined for other packages by using the respective
-<code>package-name</code> prefix:</p>
+<p>Note that for packages which have <code>buildsInSource: true</code> esy copies sources into <code>self.target_dir</code> and therefore values of <code>self.root</code> and <code>self.target_dir</code> are the same.</p>
+<p>You can refer to the values defined for other packages which are direct
+dependencies by using the respective <code>package-name.</code> prefix. Set the set of
+available variables is the same:</p>
+<ul>
+<li><code>package-name.name</code></li>
+<li><code>package-name.version</code></li>
+<li><code>package-name.root</code></li>
+<li><code>package-name.target_dir</code></li>
+<li><code>package-name.install</code>
 <ul>
 <li><code>package-name.bin</code></li>
 <li><code>package-name.sbin</code></li>
@@ -139,12 +150,7 @@ manipulation in a cross platform manner.</p>
 <li><code>package-name.toplevel</code></li>
 <li><code>package-name.share</code></li>
 <li><code>package-name.etc</code></li>
-<li><code>package-name.install</code></li>
-<li><code>package-name.target_dir</code></li>
-<li><code>package-name.root</code></li>
-<li><code>package-name.name</code></li>
-<li><code>package-name.version</code></li>
-<li><code>package-name.depends</code></li>
+</ul></li>
 </ul>
 <p>The following constructs are also allowed inside &quot;interpolation&quot; regions:</p>
 <ul>
