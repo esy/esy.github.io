@@ -42,6 +42,15 @@ in their source trees.</p>
   "reason": "link:../path/to/reason/checkout"
 }
 </code></pre>
+<p>If you are linking to a folder with many esy packages in it, use the path to the
+<code>json</code> file that will be use to resolve the dependency, for example:</p>
+<pre><code class="hljs css language-json">"dependencies": {
+  "refmterr": "*",
+},
+"resolutions": {
+  "refmterr": "link:../reason-native/refmterr.json"
+}
+</code></pre>
 <blockquote>
 <p>Why <code>resolutions</code>?</p>
 <p>This is because in case any other package in the project's sandbox depends on
