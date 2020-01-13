@@ -4,7 +4,7 @@
         <title>esy Blog</title>
         <link>https://esy.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest esy news and events.</description>
-        <lastBuildDate>Thu, 27 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Jan 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -12,6 +12,16 @@
             <url>https://esy.github.io/img/block-white.svg</url>
             <link>https://esy.github.io/blog</link>
         </image>
+        <item>
+            <title><![CDATA[New release - 0.6.0 🎉]]></title>
+            <link>https://esy.github.io/blog/2020/01/12/0.6.0.html</link>
+            <guid>https://esy.github.io/blog/2020/01/12/0.6.0.html</guid>
+            <pubDate>Sun, 12 Jan 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>We went quite again for a while with the blog - between the last post, we released 0.5.* and now 0.6.0.</p>
+<p>This time received contributions from 28 contributors! Thank you
+everyone! Let's take a quick look at what new in 0.6.0.</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[What's new in esy 0.4.x]]></title>
             <link>https://esy.github.io/blog/2018/12/27/0.4.x.html</link>
