@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Development · esy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;To make changes to &lt;code&gt;esy&lt;/code&gt; and test them locally:&lt;/p&gt;
+"/><meta name="docsearch:version" content="0.6.5"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Development · esy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://esy.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;To make changes to &lt;code&gt;esy&lt;/code&gt; and test them locally:&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/reason-react-red.svg"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css"/><link rel="alternate" type="application/atom+xml" href="https://esy.github.io/blog/atom.xml" title="esy Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://esy.github.io/blog/feed.xml" title="esy Blog RSS Feed"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/block-white.svg" alt="esy"/><h2 class="headerTitleWithLogo">esy</h2></a><a href="/en/versions.html"><h3>0.6.5</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/0.6.5/getting-started.html" target="_self">Getting started</a></li><li class="siteNavGroupActive"><a href="/docs/en/0.6.5/what-why.html" target="_self">Docs</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class="siteNavGroupActive"><a href="/docs/en/0.6.5/community.html" target="_self">Community</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/esy/esy" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Internals</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/what-why.html">What &amp; Why</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/getting-started.html">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/using-repo-sources-workflow.html">Using Unreleased Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/linking-workflow.html">Linking Packages in Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/concepts.html">Concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/configuration.html">Project Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/environment.html">Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/commands.html">Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/low-level-commands.html">Low Level Commands</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/esy-configuration.html">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/node-compatibility.html">Node/npm Compatibility</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Community</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/community.html">Community</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Workflow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/multiple-sandboxes.html">Multiple Project Sandboxes</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/npm-release.html">Building npm Releases</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/opam-workflow.html">Workflow for opam Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/c-workflow.html">Workflow for C/C++ Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/offline.html">Offline Builds</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internals</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/0.6.5/how-it-works.html">How esy works</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/0.6.5/development.html">Development</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/esy/esy/tree/master/docs/development.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Development</h1></header><article><div><span><p>To make changes to <code>esy</code> and test them locally:</p>
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> git://github.com/esy/esy.git
+<span class="hljs-built_in">cd</span> esy
+make bootstrap
+</code></pre>
+<p>And then run newly built <code>esy</code> executable from anywhere like <code>PATH_TO_REPO/bin/esy</code>.</p>
+<p>Run:</p>
+<pre><code class="hljs css language-bash">make
+</code></pre>
+<p>to see the description of development workflow.</p>
+<h2><a class="anchor" aria-hidden="true" id="running-tests"></a><a href="#running-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running Tests</h2>
+<p>Run all test suites:</p>
+<pre><code class="hljs css language-bash">make <span class="hljs-built_in">test</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="issues"></a><a href="#issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Issues</h2>
+<p>Issues are tracked at <a href="https://github.com/esy/esy">esy/esy</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="publishing-releases"></a><a href="#publishing-releases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing Releases</h2>
+<p>On a clean branch off of <code>origin/master</code>, run:</p>
+<pre><code class="hljs css language-bash">make bump-patch-version publish
+</code></pre>
+<p>to bump the patch version, tag the release in git repository and publish the
+tarball on npm.</p>
+<p>To publish under custom release tag:</p>
+<pre><code class="hljs css language-bash">make RELEASE_TAG=next bump-patch-version publish
+</code></pre>
+<p>Release tag <code>next</code> is used to publish preview releases.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/0.6.5/how-it-works.html"><span class="arrow-prev">← </span><span>How esy works</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#running-tests">Running Tests</a></li><li><a href="#issues">Issues</a></li><li><a href="#publishing-releases">Publishing Releases</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'a7cfb79b829d08c14bd06ae075f9baac',
+                indexName: 'esy',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -61,10 +61,30 @@ project's dependencies and of the project itself:</p>
 installed:</p>
 <pre><code class="hljs css language-shell">esy x Hello
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" id="where-is-the-binary-executable"></a><a href="#where-is-the-binary-executable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where is the binary executable?</h3>
+<p>When a compiled binary is run with <code>esy x Hello</code>, esy creates a local install sandbox with <code>/bin</code>, <code>/lib</code>, <code>/etc</code> and other directories found globally where binaries are meant to be installed. If you're curious, you could peek into them, running</p>
+<pre><code class="hljs css language-shell">esy echo #{self.install}
+</code></pre>
+<p>and inspect the contents yourself. You'll find the binaries in the <code>bin</code> directory.</p>
+<p>However, they are not meant to be run directly as they could be missing the necessary <a href="/docs/en/next/concepts.html">exported environment</a> - it could be possible that the binary you created needs a dependency during the runtime. <code>esy x &lt;your project binary&gt;</code> is the recommended way to run them.</p>
+<p>Checkout <a href="/docs/en/next/concepts.html">concepts</a> for more information.</p>
 <h2><a class="anchor" aria-hidden="true" id="rebuild-the-project"></a><a href="#rebuild-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rebuild the project</h2>
 <p>Hack on project's source code and rebuild the project:</p>
+<pre><code class="hljs css language-shell">esy 
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="adding-a-dependency"></a><a href="#adding-a-dependency" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding a dependency</h2>
+<pre><code class="hljs css language-shell">esy add &lt;dependency&gt;
+</code></pre>
+<p>This will fetch the sources and copy them in esy's store. Next, run</p>
 <pre><code class="hljs css language-shell">esy build
 </code></pre>
+<p>This will build the newly downloaded dependency.</p>
+<p>Alternatively, add a new entry in the <code>dependencies</code> (or <code>devDependencies</code>)</p>
+<pre><code class="hljs css language-diff">  "@reason-native/console: "*"
+<span class="hljs-addition">+ "@reason-native/pastel": "*"</span>
+  "@reason-native/rely": "*"
+</code></pre>
+<p>And run, esy afterwards.</p>
 <h2><a class="anchor" aria-hidden="true" id="other-useful-commands"></a><a href="#other-useful-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other useful commands</h2>
 <p>It is possible to invoke any command from within the project's sandbox.  For
 example build &amp; run tests with:</p>
@@ -80,7 +100,7 @@ prefixing it with <code>esy</code>:</p>
 <p>For more options:</p>
 <pre><code class="hljs css language-shell">esy help
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/next/what-why.html"><span class="arrow-prev">← </span><span>What &amp; Why</span></a><a class="docs-next button" href="/docs/en/next/using-repo-sources-workflow.html"><span>Using Unreleased Packages</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-esy">Install esy</a></li><li><a href="#clone-initialize-the-project">Clone &amp; initialize the project</a></li><li><a href="#run-compiled-executables">Run compiled executables</a></li><li><a href="#rebuild-the-project">Rebuild the project</a></li><li><a href="#other-useful-commands">Other useful commands</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/next/what-why.html"><span class="arrow-prev">← </span><span>What &amp; Why</span></a><a class="docs-next button" href="/docs/en/next/using-repo-sources-workflow.html"><span>Using Unreleased Packages</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-esy">Install esy</a></li><li><a href="#clone-initialize-the-project">Clone &amp; initialize the project</a></li><li><a href="#run-compiled-executables">Run compiled executables</a><ul class="toc-headings"><li><a href="#where-is-the-binary-executable">Where is the binary executable?</a></li></ul></li><li><a href="#rebuild-the-project">Rebuild the project</a></li><li><a href="#adding-a-dependency">Adding a dependency</a></li><li><a href="#other-useful-commands">Other useful commands</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/block-white.svg" alt="esy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/configuration.html">Project Configuration</a><a href="/docs/en/commands.html">Commands Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/reasonml">Discord</a><a href="http://stackoverflow.com/questions/tagged/esy">Stack Overflow</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
