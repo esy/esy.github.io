@@ -33,7 +33,7 @@
 <li><p><strong>command environment</strong> — an environment which is used running text editors/IDE
 and for general testing of the built artfiacts</p></li>
 <li><p><strong>test environment</strong> — an environment which includes the current package's
-installation directories and expored environment. This is useful if you need
+installation directories and its exported environment. This is useful if you need
 an environment in which the current application appears installed.</p></li>
 </ul>
 <p>Each environment consists of two parts:</p>
@@ -132,8 +132,7 @@ variables defined which refer to common subdirectories of <code>self.install</co
 </ul>
 <p>Note that for packages which have <code>buildsInSource: true</code> esy copies sources into <code>self.target_dir</code> and therefore values of <code>self.root</code> and <code>self.target_dir</code> are the same.</p>
 <p>You can refer to the values defined for other packages which are direct
-dependencies by using the respective <code>package-name.</code> prefix. Set the set of
-available variables is the same:</p>
+dependencies by using the respective <code>package-name.</code> prefix. Available variables are the same:</p>
 <ul>
 <li><code>package-name.name</code></li>
 <li><code>package-name.version</code></li>
